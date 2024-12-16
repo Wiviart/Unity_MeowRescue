@@ -20,10 +20,11 @@ MonoBehaviour:
   - {fileID: 1978942465877133737, guid: 32241343f447c33448f6136cd7f61334, type: 3}
   - {fileID: 1978942465877133737, guid: 2c37eeb183d94cd47a091ee0ead887f0, type: 3}
   - {fileID: 1978942465877133737, guid: 1d9479ccb617eec44a4302778d2a2910, type: 3}
-  spawnPoints:
+  meowSpawnPoints:
   - {x: 80, y: 50}
   - {x: 20, y: 90}
   - {x: 70, y: 160}
   - {x: 30, y: 240}
   - {x: 80, y: 290}
   - {x: 60, y: 370}
+  mapPrefab: {fileID: 557198301762047424, guid: 9dbb1fc57e0983c499b79e54eea1d205, type: 3}

@@ -1,4 +1,15 @@
+using System;
+using Unity.AI.Navigation;
 using UnityEngine;
+using Object = UnityEngine.Object;
+using Random = UnityEngine.Random;
+
+public enum SpawnType
+{
+    Player,
+    Meows,
+    Map
+}
 
 public class Spawner
 {
@@ -9,15 +20,20 @@ public class Spawner
         this.data = data;
     }
 
-    public void Spawn(bool isPlayer = false)
+    public void Spawn(SpawnType type)
     {
-        switch (isPlayer)
+        switch (type)
         {
-            case true:
+            case SpawnType.Player:
                 SpawnPlayer();
                 break;
-            default:
+            case SpawnType.Map:
+                SpawnMap();
+                break;
+            case SpawnType.Meows:
                 SpawnMeows();
+                break;
+            default:
                 break;
         }
     }
@@ -30,14 +46,21 @@ public class Spawner
 
     private void SpawnMeows()
     {
-        for (int i = 0; i < data.spawnPoints.Length; i++)
+        for (int i = 0; i < data.meowSpawnPoints.Length; i++)
         {
             var index = Random.Range(0, data.meowPrefabs.Length);
             var randomPoint = Random.insideUnitCircle * 20;
-            var spawnPoint = data.spawnPoints[i] + randomPoint;
+            var spawnPoint = data.meowSpawnPoints[i] + randomPoint;
             var pos = new Vector3(spawnPoint.x, 0, spawnPoint.y);
             var pf = data.meowPrefabs[index];
             var meow = Object.Instantiate(pf, pos, Quaternion.identity);
         }
+    }
+
+    private void SpawnMap()
+    {
+        var map = Object.Instantiate(data.mapPrefab);
+        var surface = map.GetComponent<NavMeshSurface>();
+        surface.BuildNavMesh();
     }
 }

@@ -1,4 +1,4 @@
-using Cinemachine;
+using Unity.Cinemachine;
 using UnityEngine;
 using Watermelon.LevelSystem;
 
@@ -56,7 +56,7 @@ namespace Watermelon
 
         private Level level;
 
-        private CinemachineVirtualCamera tutorialVirtualCamera;
+        private CinemachineCamera tutorialVirtualCamera;
 
         private bool isItemPicked;
         private bool isAnimalPicked;

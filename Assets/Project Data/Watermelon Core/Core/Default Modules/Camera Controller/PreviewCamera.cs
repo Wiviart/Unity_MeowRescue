@@ -1,4 +1,4 @@
-﻿using Cinemachine;
+﻿using Unity.Cinemachine;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,7 +9,7 @@ namespace Watermelon
         private const float CAMERA_MOVEMENT_SPEED = 40;
 
         private static VirtualCameraCase tutorialCameraCase;
-        private static CinemachineVirtualCamera tutorialVirtualCamera;
+        private static CinemachineCamera tutorialVirtualCamera;
         private static GameObject tutorialCameraTarget;
 
         private static bool isActive;

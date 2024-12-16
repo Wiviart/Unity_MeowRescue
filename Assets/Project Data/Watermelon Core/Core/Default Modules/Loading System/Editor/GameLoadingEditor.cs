@@ -11,7 +11,7 @@ namespace Watermelon
             "Init"
         };
 
-        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+        // [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         public static void LoadMain()
         {
             var currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene();
@@ -26,7 +26,7 @@ namespace Watermelon
                         if (initialiserPrefab != null)
                         {
                             GameObject initialiserObject = Object.Instantiate(initialiserPrefab);
-
+            
                             initialiser = initialiserObject.GetComponent<Initialiser>();
                             initialiser.Awake();
                             initialiser.Initialise(false);

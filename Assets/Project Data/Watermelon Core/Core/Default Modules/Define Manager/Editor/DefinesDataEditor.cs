@@ -37,22 +37,22 @@ namespace Watermelon
                 yield return null;
             }
 
-            if (!EditorApplication.isPlaying)
-            {
-                DefinesSettings definesData = EditorUtils.GetAsset<DefinesSettings>();
-                    
-                if (definesData == null)
-                {
-                    if (EditorUtility.DisplayDialog("Define Manager", "Defines asset can't be found.", "Create", "Ignore"))
-                    {
-                        EditorUtils.CreateAsset<DefinesSettings>("Assets/Project Data/Content/Settings/Editor/Define Settings", true);
-                    }
-                    else
-                    {
-                        Debug.LogWarning("[Define Manager]: Defines Settings asset can't be found.");
-                    }
-                }
-            }
+            // if (!EditorApplication.isPlaying)
+            // {
+            //     DefinesSettings definesData = EditorUtils.GetAsset<DefinesSettings>();
+            //         
+            //     if (definesData == null)
+            //     {
+            //         if (EditorUtility.DisplayDialog("Define Manager", "Defines asset can't be found.", "Create", "Ignore"))
+            //         {
+            //             EditorUtils.CreateAsset<DefinesSettings>("Assets/Project Data/Content/Settings/Editor/Define Settings", true);
+            //         }
+            //         else
+            //         {
+            //             Debug.LogWarning("[Define Manager]: Defines Settings asset can't be found.");
+            //         }
+            //     }
+            // }
         }
 
         protected override void OnEnable()

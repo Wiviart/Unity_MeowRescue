@@ -44,25 +44,25 @@ namespace Watermelon
 
         public void Initialise(bool loadingScene)
         {
-            if (!IsStartInitialized)
-            {
-                // Initialise components
-                initSettings.StartInit(this);
-
-                // Create audio listener
-                AudioController.CreateAudioListener();
-
-                IsStartInitialized = true;
-
-                if (loadingScene)
-                {
-                    GameLoading.LoadGameScene();
-                }
-                else
-                {
-                    GameLoading.SimpleLoad();
-                }
-            }
+            // if (!IsStartInitialized)
+            // {
+            //     // Initialise components
+            //     initSettings.StartInit(this);
+            //
+            //     // Create audio listener
+            //     AudioController.CreateAudioListener();
+            //
+            //     IsStartInitialized = true;
+            //
+            //     if (loadingScene)
+            //     {
+            //         GameLoading.LoadGameScene();
+            //     }
+            //     else
+            //     {
+            //         GameLoading.SimpleLoad();
+            //     }
+            // }
         }
 
         private void OnDestroy()

@@ -115,22 +115,22 @@ namespace Watermelon
 
         public static void ForceSave()
         {
-            globalSave.Flush();
-
-            BaseSaveWrapper saveWrapper = BaseSaveWrapper.ActiveWrapper;
-            if (saveWrapper.UseThreads())
-            {
-                Thread saveThread = new Thread(() => BaseSaveWrapper.ActiveWrapper.Save(globalSave, SAVE_FILE_NAME));
-                saveThread.Start();
-            }
-            else
-            {
-                BaseSaveWrapper.ActiveWrapper.Save(globalSave, SAVE_FILE_NAME);
-            }
-
-            Debug.Log("[Save Controller]: Game is saved!");
-
-            isSaveRequired = false;
+            // globalSave.Flush();
+            //
+            // BaseSaveWrapper saveWrapper = BaseSaveWrapper.ActiveWrapper;
+            // if (saveWrapper.UseThreads())
+            // {
+            //     Thread saveThread = new Thread(() => BaseSaveWrapper.ActiveWrapper.Save(globalSave, SAVE_FILE_NAME));
+            //     saveThread.Start();
+            // }
+            // else
+            // {
+            //     BaseSaveWrapper.ActiveWrapper.Save(globalSave, SAVE_FILE_NAME);
+            // }
+            //
+            // Debug.Log("[Save Controller]: Game is saved!");
+            //
+            // isSaveRequired = false;
         }
 
         public static void SaveCustom(GlobalSave globalSave)

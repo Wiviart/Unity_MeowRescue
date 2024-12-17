@@ -21,7 +21,7 @@ public class Spawner
     {
         this.gameData = gameData;
         this.levelData = levelData;
-        
+
         SpawnStartMap();
     }
 
@@ -72,12 +72,18 @@ public class Spawner
 
     private void SpawnMap()
     {
-        var map = Object.Instantiate(levelData.mapPrefab);
-        var deco = Object.Instantiate(levelData.decorationPrefab);
-        // var surface = map.GetComponent<NavMeshSurface>();
-        // surface.BuildNavMesh();
+        for (int i = 0; i < 4; i++)
+        {
+            var pos = Vector3.forward * i * 400;
+            var m = levelData.mapPrefab;
+            var map = Object.Instantiate(m, pos, m.transform.rotation);
+            
+            var id = Random.Range(0, levelData.decorationPrefabs.Length);
+            var d = levelData.decorationPrefabs[id];
+            var deco = Object.Instantiate(d, pos, d.transform.rotation);
+        }
     }
-    
+
     private void SpawnTsunami()
     {
         var pos = new Vector3(levelData.tsunamiSpawnPoint.x, 0, levelData.tsunamiSpawnPoint.y);

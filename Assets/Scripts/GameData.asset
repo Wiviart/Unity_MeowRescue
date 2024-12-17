@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: GameData
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 7847457195256368719, guid: 62811c296133f85429ae7eec8a04b52c, type: 3}
+  startMapPrefab: {fileID: 4086525028581061483, guid: 7e97a8f86ba3db9419f54a5ba1523296, type: 3}
   tsunamiPrefab: {fileID: 6104600767620614563, guid: 7db0ffb22bbae9040bd6e8e52f0280b6, type: 3}
   meowPrefabs:
   - {fileID: 3723217540529644781, guid: 5ca89bbd6a39ebc4491d1c4bf458569d, type: 3}
@@ -20,4 +21,5 @@ MonoBehaviour:
   - {fileID: 1978942465877133737, guid: 32241343f447c33448f6136cd7f61334, type: 3}
   - {fileID: 1978942465877133737, guid: 2c37eeb183d94cd47a091ee0ead887f0, type: 3}
   - {fileID: 1978942465877133737, guid: 1d9479ccb617eec44a4302778d2a2910, type: 3}
-  startMapPrefab: {fileID: 4086525028581061483, guid: 7e97a8f86ba3db9419f54a5ba1523296, type: 3}
+  levels:
+  - {fileID: 11400000, guid: 6d9d713166d660446be558b416066ab9, type: 2}

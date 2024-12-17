@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Level 1
   m_EditorClassIdentifier: 
   playerSpawnPoint: {x: 50, y: 0}
+  tsunamiSpawnPoint: {x: 50, y: -150}
   meowSpawnPoints:
   - {x: 80, y: 50}
   - {x: 20, y: 90}
@@ -21,5 +22,5 @@ MonoBehaviour:
   - {x: 80, y: 290}
   - {x: 60, y: 370}
   mapPrefab: {fileID: 557198301762047424, guid: 9dbb1fc57e0983c499b79e54eea1d205, type: 3}
-  decorationPrefab: {fileID: 6665443483961486754, guid: 59f179c9e5a54974b8b67ba259e949cf, type: 3}
-  tsunamiSpawnPoint: {x: 50, y: -150}
+  decorationPrefabs:
+  - {fileID: 6665443483961486754, guid: 59f179c9e5a54974b8b67ba259e949cf, type: 3}

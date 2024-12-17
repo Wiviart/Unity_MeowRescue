@@ -1,9 +1,20 @@
+using System;
+using MeowRescue.Utilities;
 using UnityEngine;
 
-public class LevelManager : MonoBehaviour
+public class LevelManager : Singleton<LevelManager>
 {
     [SerializeField] private GameData gameData;
-    [SerializeField] private LevelData levelData;
+    private LevelData levelData;
+    public GameState gameState = GameState.Init;
+
+    private void Awake()
+    {
+        Instance = this;
+
+        var id = PlayerPrefs.GetInt(ConstTag.LEVEL, 0);
+        levelData = gameData.levels[id];
+    }
 
     private void Start()
     {
@@ -12,5 +23,15 @@ public class LevelManager : MonoBehaviour
         spawner.Spawn(SpawnType.Player);
         spawner.Spawn(SpawnType.Meows);
         spawner.Spawn(SpawnType.Tsunami);
+
+        gameState = GameState.Playing;
     }
+}
+
+public enum GameState
+{
+    Init,
+    Playing,
+    GameWin,
+    GameOver
 }

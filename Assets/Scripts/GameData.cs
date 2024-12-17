@@ -4,7 +4,9 @@ using UnityEngine;
 public class GameData : ScriptableObject
 {
     public GameObject playerPrefab;
+    public GameObject startMapPrefab;
     public GameObject tsunamiPrefab;
     public GameObject[] meowPrefabs;
-    public GameObject startMapPrefab;
+
+    public LevelData[] levels;
 }

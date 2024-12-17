@@ -1,15 +1,20 @@
+using MeowRescue.Utilities;
 using UnityEngine;
 
 public class TsunamiBehaviour : MonoBehaviour
 {
     private readonly float[] speeds = { 10f, 40f };
-    private const float checkPoint = 400f;
+    private int index = 0;
 
     private void Update()
     {
-        var speed = 
-            transform.position.z < checkPoint ? 
-            speeds[0] : speeds[1];
-        transform.position += Vector3.forward * speed * Time.deltaTime;
+        transform.position += Vector3.forward * speeds[index] * Time.deltaTime;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!other.CompareTag(ConstTag.CHECKPOINT)) return;
+        if (index >= speeds.Length - 1) return;
+        index++;
     }
 }

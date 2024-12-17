@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5603627892771841423}
   - component: {fileID: 283040624113583576}
   m_Layer: 0
-  m_Name: Environments
+  m_Name: Level Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

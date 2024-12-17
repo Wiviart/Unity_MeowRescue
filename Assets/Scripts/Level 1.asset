@@ -12,14 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 584e7684787c888438382295e5400c94, type: 3}
   m_Name: Level 1
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 1697739096018267998, guid: 59e8bc2e68061a4499ac4e955084bde3, type: 3}
-  playerSpawnPoint: {x: 50, y: -50}
-  meowPrefabs:
-  - {fileID: 3723217540529644781, guid: 5ca89bbd6a39ebc4491d1c4bf458569d, type: 3}
-  - {fileID: 1978942465877133737, guid: 840538e304cb5444692621810cc633a3, type: 3}
-  - {fileID: 1978942465877133737, guid: 32241343f447c33448f6136cd7f61334, type: 3}
-  - {fileID: 1978942465877133737, guid: 2c37eeb183d94cd47a091ee0ead887f0, type: 3}
-  - {fileID: 1978942465877133737, guid: 1d9479ccb617eec44a4302778d2a2910, type: 3}
+  playerSpawnPoint: {x: 50, y: 0}
   meowSpawnPoints:
   - {x: 80, y: 50}
   - {x: 20, y: 90}
@@ -28,3 +21,5 @@ MonoBehaviour:
   - {x: 80, y: 290}
   - {x: 60, y: 370}
   mapPrefab: {fileID: 557198301762047424, guid: 9dbb1fc57e0983c499b79e54eea1d205, type: 3}
+  decorationPrefab: {fileID: 6665443483961486754, guid: 59f179c9e5a54974b8b67ba259e949cf, type: 3}
+  tsunamiSpawnPoint: {x: 50, y: -150}

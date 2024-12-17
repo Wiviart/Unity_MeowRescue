@@ -8,16 +8,21 @@ public enum SpawnType
 {
     Player,
     Meows,
-    Map
+    Map,
+    Tsunami
 }
 
 public class Spawner
 {
-    private readonly LevelData data;
+    private readonly GameData gameData;
+    private readonly LevelData levelData;
 
-    public Spawner(LevelData data)
+    public Spawner(GameData gameData, LevelData levelData)
     {
-        this.data = data;
+        this.gameData = gameData;
+        this.levelData = levelData;
+        
+        SpawnStartMap();
     }
 
     public void Spawn(SpawnType type)
@@ -33,6 +38,9 @@ public class Spawner
             case SpawnType.Meows:
                 SpawnMeows();
                 break;
+            case SpawnType.Tsunami:
+                SpawnTsunami();
+                break;
             default:
                 break;
         }
@@ -40,27 +48,39 @@ public class Spawner
 
     private void SpawnPlayer()
     {
-        var pos = new Vector3(data.playerSpawnPoint.x, 0, data.playerSpawnPoint.y);
-        var player = Object.Instantiate(data.playerPrefab, pos, Quaternion.identity);
+        var pos = new Vector3(levelData.playerSpawnPoint.x, 0, levelData.playerSpawnPoint.y);
+        var player = Object.Instantiate(gameData.playerPrefab, pos, Quaternion.identity);
     }
 
     private void SpawnMeows()
     {
-        for (int i = 0; i < data.meowSpawnPoints.Length; i++)
+        for (int i = 0; i < levelData.meowSpawnPoints.Length; i++)
         {
-            var index = Random.Range(0, data.meowPrefabs.Length);
+            var index = Random.Range(0, gameData.meowPrefabs.Length);
             var randomPoint = Random.insideUnitCircle * 20;
-            var spawnPoint = data.meowSpawnPoints[i] + randomPoint;
+            var spawnPoint = levelData.meowSpawnPoints[i] + randomPoint;
             var pos = new Vector3(spawnPoint.x, 0, spawnPoint.y);
-            var pf = data.meowPrefabs[index];
+            var pf = gameData.meowPrefabs[index];
             var meow = Object.Instantiate(pf, pos, Quaternion.identity);
         }
     }
 
+    private void SpawnStartMap()
+    {
+        var map = Object.Instantiate(gameData.startMapPrefab);
+    }
+
     private void SpawnMap()
     {
-        var map = Object.Instantiate(data.mapPrefab);
-        var surface = map.GetComponent<NavMeshSurface>();
-        surface.BuildNavMesh();
+        var map = Object.Instantiate(levelData.mapPrefab);
+        var deco = Object.Instantiate(levelData.decorationPrefab);
+        // var surface = map.GetComponent<NavMeshSurface>();
+        // surface.BuildNavMesh();
+    }
+    
+    private void SpawnTsunami()
+    {
+        var pos = new Vector3(levelData.tsunamiSpawnPoint.x, 0, levelData.tsunamiSpawnPoint.y);
+        var tsunami = Object.Instantiate(gameData.tsunamiPrefab, pos, Quaternion.identity);
     }
 }

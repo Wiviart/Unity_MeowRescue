@@ -1,3 +1,4 @@
+using MeowRescue.Utilities.Spawner;
 using UnityEngine;
 
 public class Spawner_Object : MonoBehaviour
@@ -14,7 +15,7 @@ public class Spawner_Object : MonoBehaviour
         var i = Random.Range(0, spawnerData.prefabs.Length);
         var pf = spawnerData.prefabs[i];
         var pos = transform.position;
-        var r = transform.rotation;
-        var obj = Instantiate(pf, pos, r);
+        var rot = transform.rotation;
+        var obj = Instantiate(pf, pos, rot);
     }
 }

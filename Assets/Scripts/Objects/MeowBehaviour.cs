@@ -71,6 +71,7 @@ namespace MeowRescue.Meow
         public void Collect()
         {
             isCollected = true;
+            gameObject.tag = "Untagged";
         }
     }
 }

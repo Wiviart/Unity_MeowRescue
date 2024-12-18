@@ -1,3 +1,4 @@
+using MeowRescue.Utilities.Spawner;
 using UnityEngine;
 using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
@@ -10,7 +11,7 @@ public enum SpawnType
     Tsunami
 }
 
-public class Spawner
+public class Spawner : ASpawner
 {
     private readonly GameData gameData;
     private readonly LevelData levelData;
@@ -46,22 +47,17 @@ public class Spawner
 
     private void SpawnPlayer()
     {
-        var pos = levelData.playerSpawnPoint;
-        var pPos = new Vector3(pos.x, 0, pos.y);
-        var p = gameData.playerPrefab;
-        var r = p.transform.rotation;
-        var player = Object.Instantiate(p, pPos, r);
+        Spawn(gameData.playerPrefab, levelData.playerSpawnPoint);
     }
 
     private void SpawnMeows()
     {
+        // Spawn Meow Spawners
         for (int i = 0; i < levelData.meowPoints.Length; i++)
         {
             var randomPoint = Random.insideUnitCircle * 20;
             var spawnPoint = levelData.meowPoints[i] + randomPoint;
-            var pos = new Vector3(spawnPoint.x, 0, spawnPoint.y);
-            var pf = gameData.meowSpawnerPrefab;
-            var meow = Object.Instantiate(pf, pos, Quaternion.identity);
+            Spawn(gameData.meowSpawnerPrefab, spawnPoint);
         }
     }
 
@@ -75,27 +71,44 @@ public class Spawner
         for (int i = 0; i < 4; i++)
         {
             var pos = Vector3.forward * i * 400;
-            var m = levelData.mapPrefab;
-            var map = Object.Instantiate(m, pos, m.transform.rotation);
-
-            var d = levelData.decorationPrefab;
-            var deco = Object.Instantiate(d, pos, d.transform.rotation);
+            Spawn(levelData.mapPrefab, pos);
+            SpawnDecorations(pos);
         }
 
-        var cPos = levelData.checkpointPoints;
-        var checkpointPos = new Vector3(cPos.x, 0, cPos.y);
-        var c = gameData.checkpointPrefab;
-        var checkpoint = Object.Instantiate(c, checkpointPos, c.transform.rotation);
-
-        var ePos = levelData.exitPoints;
-        var exitPos = new Vector3(ePos.x, 0, ePos.y);
-        var e = gameData.exitPrefab;
-        var exit = Object.Instantiate(e, exitPos, e.transform.rotation);
+        Spawn(gameData.checkpointPrefab, levelData.checkpointPoints);
+        Spawn(gameData.exitPrefab, levelData.exitPoints);
     }
 
     private void SpawnTsunami()
     {
-        var pos = new Vector3(levelData.tsunamiSpawnPoint.x, 0, levelData.tsunamiSpawnPoint.y);
-        var tsunami = Object.Instantiate(gameData.tsunamiPrefab, pos, Quaternion.identity);
+        Spawn(gameData.tsunamiPrefab, levelData.tsunamiSpawnPoint);
+    }
+
+    private void SpawnDecorations(Vector3 pos)
+    {
+        // Spawn House Spawners
+        for (int i = 0; i < levelData.housePoints.Length; i++)
+        {
+            var spawnPoint = levelData.housePoints[i].points;
+            var r = levelData.housePoints[i].rotations;
+            var obj = Spawn(gameData.houseSpawnerPrefab, spawnPoint, r);
+            obj.transform.position += pos;
+        }
+
+        // Spawn Tree Spawners
+        for (int i = 0; i < levelData.treePoints.Length; i++)
+        {
+            var spawnPoint = levelData.treePoints[i];
+            var obj = Spawn(gameData.treeSpawnerPrefab, spawnPoint);
+            obj.transform.position += pos;
+        }
+
+        // Spawn Obstacle Spawners
+        for (int i = 0; i < levelData.obstaclePoints.Length; i++)
+        {
+            var spawnPoint = levelData.obstaclePoints[i];
+            var obj = Spawn(gameData.obstacleSpawnerPrefab, spawnPoint);
+            obj.transform.position += pos;
+        }
     }
 }

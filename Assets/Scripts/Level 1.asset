@@ -21,9 +21,33 @@ MonoBehaviour:
   - {x: 30, y: 240}
   - {x: 80, y: 290}
   - {x: 60, y: 370}
-  housePoints: []
-  treePoints: []
-  obstaclePoints: []
+  housePoints:
+  - points: {x: 112, y: 224}
+    rotations: {x: 0, y: 90, z: 0}
+  - points: {x: -7, y: 126}
+    rotations: {x: 0, y: -90, z: 0}
+  treePoints:
+  - {x: 119, y: 147}
+  - {x: 112, y: 252}
+  - {x: 126, y: 308}
+  - {x: 119, y: 336}
+  - {x: -14, y: 105}
+  - {x: -20, y: 175}
+  - {x: -10, y: 252}
+  - {x: -14, y: 315}
+  - {x: -20, y: 336}
+  obstaclePoints:
+  - {x: 10, y: 20}
+  - {x: 30, y: 50}
+  - {x: 60, y: 60}
+  - {x: 40, y: 80}
+  - {x: 80, y: 100}
+  - {x: 20, y: 120}
+  - {x: 70, y: 150}
+  - {x: 50, y: 200}
+  - {x: 90, y: 250}
+  - {x: 10, y: 300}
+  - {x: 70, y: 350}
   mapPrefab: {fileID: 557198301762047424, guid: 9dbb1fc57e0983c499b79e54eea1d205, type: 3}
   decorationPrefab: {fileID: 6665443483961486754, guid: 59f179c9e5a54974b8b67ba259e949cf, type: 3}
   checkpointPoints: {x: 50, y: 400}

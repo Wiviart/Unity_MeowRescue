@@ -60,7 +60,6 @@ namespace MeowRescue.Player
         {
             if (other.gameObject.CompareTag(ConstTag.MEOW))
             {
-                other.gameObject.tag = "Untagged";
                 collector.Collect(other.transform);
                 var meow = other.GetComponent<ICollectable>();
                 meow?.Collect();

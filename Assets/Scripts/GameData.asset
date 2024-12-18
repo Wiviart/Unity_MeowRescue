@@ -16,6 +16,9 @@ MonoBehaviour:
   startMapPrefab: {fileID: 4086525028581061483, guid: 7e97a8f86ba3db9419f54a5ba1523296, type: 3}
   tsunamiPrefab: {fileID: 6104600767620614563, guid: 7db0ffb22bbae9040bd6e8e52f0280b6, type: 3}
   meowSpawnerPrefab: {fileID: 1984109711991962915, guid: 3530ff493a208044ea00b28cbcdf151e, type: 3}
+  houseSpawnerPrefab: {fileID: 8583133401287771829, guid: 45082854041aae64fb2f07f0108f5374, type: 3}
+  treeSpawnerPrefab: {fileID: 7021665939275947558, guid: 7e2ba6326f52b874dbf081410d653277, type: 3}
+  obstacleSpawnerPrefab: {fileID: 7021665939275947558, guid: 6460645c64f3cd1439b19340f64bfb1b, type: 3}
   levels:
   - {fileID: 11400000, guid: 6d9d713166d660446be558b416066ab9, type: 2}
   - {fileID: 11400000, guid: 6d9d713166d660446be558b416066ab9, type: 2}

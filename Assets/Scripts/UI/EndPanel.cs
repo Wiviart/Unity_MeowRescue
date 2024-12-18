@@ -19,7 +19,7 @@ public class EndPanel : MonoBehaviour
 
         Observer.Instance.OnGameWin += () =>
         {
-            panelName.text = "CONTINUE?";
+            panelName.text = "NEXT LEVEL?";
             Show();
         };
 

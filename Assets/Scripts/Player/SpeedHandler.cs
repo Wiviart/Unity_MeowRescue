@@ -38,4 +38,13 @@ public class SpeedHandler
         Saver.Save(ConstTag.SPEED_COST, cost);
         Observer.Instance.SpeedChanged(Speed, cost);
     }
+    
+    public void ResetSpeed()
+    {
+        Speed = ConstTag.startSpeed;
+        cost = ConstTag.speedUpgradeBeginCost;
+        Saver.Save(ConstTag.SPEED, Speed);
+        Saver.Save(ConstTag.SPEED_COST, cost);
+        Observer.Instance.SpeedChanged(Speed, cost);
+    }
 }

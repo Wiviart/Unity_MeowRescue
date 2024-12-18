@@ -28,5 +28,10 @@ namespace MeowRescue.Player
             var meow = meows.Pop();
             meow.SetParent(null);
         }
+
+        public bool HasAllMeows(int count)
+        {
+            return meows.Count == count;
+        }
     }
 }

@@ -6,6 +6,7 @@ namespace MeowRescue.Player
 {
     public class PlayerBehaviour : MonoBehaviour
     {
+        [SerializeField] private GameObject playerVisual;
         private PlayerInput input;
         private PlayerMovement mover;
         private PlayerVisual visual;
@@ -13,13 +14,16 @@ namespace MeowRescue.Player
         private PlayerCollector collector;
         private PlayerGold goldCounter;
         private SpeedHandler speedHandler;
-        [SerializeField] private GameObject playerVisual;
         private Vector3 startPosition;
 
         private void Start()
         {
             Observer.Instance.OnGameEnded += CalculateReward;
-            Observer.Instance.OnGameWin += CalculateReward;
+            Observer.Instance.OnGameWin += () =>
+            {
+                CalculateReward();
+                speedHandler.ResetSpeed();
+            };
             Observer.Instance.OnPlayerUpgradeChanged += UpgradeStats;
 
             visual = new PlayerVisual(playerVisual);
@@ -42,7 +46,7 @@ namespace MeowRescue.Player
 
         private void Update()
         {
-            var isPlaying = LevelManager.GameState == GameState.Playing;
+            var isPlaying = LevelManager.Instance.GameState == GameState.Playing;
             var movement = isPlaying ? input.GetMovement() : Vector2.zero;
             var magnitude = isPlaying ? Mathf.Clamp01(movement.magnitude) : 0;
 
@@ -66,7 +70,10 @@ namespace MeowRescue.Player
 
             if (other.gameObject.CompareTag(ConstTag.EXIT))
             {
-                Observer.Instance.GameWin();
+                if (collector.HasAllMeows(LevelManager.Instance.MeowCount()))
+                    Observer.Instance.GameWin();
+                else
+                    Observer.Instance.GameEnded();
             }
         }
 

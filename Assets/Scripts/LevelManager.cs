@@ -3,15 +3,17 @@ using MeowRescue.Data;
 using MeowRescue.Utilities;
 using UnityEngine;
 
-public class LevelManager : MonoBehaviour
+public class LevelManager : Singleton<LevelManager>
 {
     [SerializeField] private GameData gameData;
     private LevelData levelData;
     private int levelIndex;
-    public static GameState GameState { private set; get; } = GameState.Init;
+    public GameState GameState { private set; get; } = GameState.Init;
 
     private void Awake()
     {
+        Instance = this;
+        
         Loader.Load(ConstTag.LEVEL, out levelIndex);
         levelData = gameData.levels[levelIndex];
     }
@@ -53,6 +55,11 @@ public class LevelManager : MonoBehaviour
         levelIndex++;
         PlayerPrefs.SetInt(ConstTag.LEVEL, levelIndex);
         print(levelIndex);
+    }
+
+    public int MeowCount()
+    {
+        return levelData.meowSpawnPoints.Length;
     }
 }
 

@@ -6,7 +6,7 @@ namespace MeowRescue.Player
     public class PlayerCollector
     {
         private readonly Transform player;
-        private Stack<Transform> meows = new Stack<Transform>();
+        private Stack<Transform> meows = new();
 
         public PlayerCollector(Transform player)
         {

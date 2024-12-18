@@ -59,7 +59,7 @@ public class LevelManager : Singleton<LevelManager>
 
     public int MeowCount()
     {
-        return levelData.meowSpawnPoints.Length;
+        return levelData.meowPoints.Length;
     }
 }
 

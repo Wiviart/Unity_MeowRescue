@@ -7,10 +7,13 @@ public class LevelData : ScriptableObject
 
     [Header("Tsunami")] public Vector2 tsunamiSpawnPoint = new(50, -150);
 
-    [Header("Meow")] public Vector2[] meowSpawnPoints;
+    [Header("Objects")] public Vector2[] meowPoints;
+    public Vector2[] housePoints;
+    public Vector2[] treePoints;
+    public Vector2[] obstaclePoints;
 
     [Header("Map")] public GameObject mapPrefab;
-    public GameObject[] decorationPrefabs;
+    public GameObject decorationPrefab;
     public Vector2 checkpointPoints = new(50, 400);
     public Vector2 exitPoints = new(50, 1400);
 }

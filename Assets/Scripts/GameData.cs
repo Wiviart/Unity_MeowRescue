@@ -6,7 +6,7 @@ public class GameData : ScriptableObject
     public GameObject playerPrefab;
     public GameObject startMapPrefab;
     public GameObject tsunamiPrefab;
-    public GameObject[] meowPrefabs;
+    public GameObject meowSpawnerPrefab;
 
     public LevelData[] levels;
     public GameObject checkpointPrefab;

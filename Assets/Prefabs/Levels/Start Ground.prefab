@@ -68,9 +68,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1264205656825282817}
   - component: {fileID: 2483309296498490646}
-  m_Layer: 0
-  m_Name: Exit (2)
-  m_TagString: Exit
+  m_Layer: 10
+  m_Name: Wall
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121,9 +121,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1645928051406065927}
   - component: {fileID: 8009780151025082206}
-  m_Layer: 0
-  m_Name: Exit (1)
-  m_TagString: Exit
+  m_Layer: 10
+  m_Name: Wall
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -174,9 +174,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7133432806129013116}
   - component: {fileID: 1437801981672848576}
-  m_Layer: 0
-  m_Name: Exit
-  m_TagString: Exit
+  m_Layer: 10
+  m_Name: Wall
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

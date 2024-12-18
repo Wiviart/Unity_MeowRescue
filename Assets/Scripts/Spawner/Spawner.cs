@@ -55,13 +55,12 @@ public class Spawner
 
     private void SpawnMeows()
     {
-        for (int i = 0; i < levelData.meowSpawnPoints.Length; i++)
+        for (int i = 0; i < levelData.meowPoints.Length; i++)
         {
-            var index = Random.Range(0, gameData.meowPrefabs.Length);
             var randomPoint = Random.insideUnitCircle * 20;
-            var spawnPoint = levelData.meowSpawnPoints[i] + randomPoint;
+            var spawnPoint = levelData.meowPoints[i] + randomPoint;
             var pos = new Vector3(spawnPoint.x, 0, spawnPoint.y);
-            var pf = gameData.meowPrefabs[index];
+            var pf = gameData.meowSpawnerPrefab;
             var meow = Object.Instantiate(pf, pos, Quaternion.identity);
         }
     }
@@ -79,8 +78,7 @@ public class Spawner
             var m = levelData.mapPrefab;
             var map = Object.Instantiate(m, pos, m.transform.rotation);
 
-            var id = Random.Range(0, levelData.decorationPrefabs.Length);
-            var d = levelData.decorationPrefabs[id];
+            var d = levelData.decorationPrefab;
             var deco = Object.Instantiate(d, pos, d.transform.rotation);
         }
 
@@ -93,14 +91,6 @@ public class Spawner
         var exitPos = new Vector3(ePos.x, 0, ePos.y);
         var e = gameData.exitPrefab;
         var exit = Object.Instantiate(e, exitPos, e.transform.rotation);
-    }
-
-    private void SpawnCheckpoint()
-    {
-        var cPos = levelData.checkpointPoints;
-        var checkpointPos = new Vector3(cPos.x, 0, cPos.y);
-        var c = gameData.checkpointPrefab;
-        var checkpoint = Object.Instantiate(c, checkpointPos, c.transform.rotation);
     }
 
     private void SpawnTsunami()

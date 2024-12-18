@@ -1,3 +1,4 @@
+using MeowRescue.Meow;
 using MeowRescue.Score;
 using MeowRescue.Utilities;
 using UnityEngine;
@@ -59,7 +60,10 @@ namespace MeowRescue.Player
         {
             if (other.gameObject.CompareTag(ConstTag.MEOW))
             {
+                other.gameObject.tag = "Untagged";
                 collector.Collect(other.transform);
+                var meow = other.GetComponent<ICollectable>();
+                meow?.Collect();
                 anim.SetLayerWeight(ConstTag.CATCH_LAYER, 1);
             }
 

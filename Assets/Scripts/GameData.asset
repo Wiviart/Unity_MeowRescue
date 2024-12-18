@@ -23,3 +23,6 @@ MonoBehaviour:
   - {fileID: 1978942465877133737, guid: 1d9479ccb617eec44a4302778d2a2910, type: 3}
   levels:
   - {fileID: 11400000, guid: 6d9d713166d660446be558b416066ab9, type: 2}
+  - {fileID: 11400000, guid: 6d9d713166d660446be558b416066ab9, type: 2}
+  checkpointPrefab: {fileID: 2738786349271990852, guid: 2ed3cb3f258e34549ac075a27e0828d5, type: 3}
+  exitPrefab: {fileID: 2738786349271990852, guid: a1ce88920e2f46a42b7dd942ff07da4a, type: 3}

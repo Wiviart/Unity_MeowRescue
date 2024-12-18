@@ -9,4 +9,6 @@ public class GameData : ScriptableObject
     public GameObject[] meowPrefabs;
 
     public LevelData[] levels;
+    public GameObject checkpointPrefab;
+    public GameObject exitPrefab;
 }

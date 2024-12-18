@@ -1,5 +1,3 @@
-using System;
-using Unity.AI.Navigation;
 using UnityEngine;
 using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
@@ -48,8 +46,11 @@ public class Spawner
 
     private void SpawnPlayer()
     {
-        var pos = new Vector3(levelData.playerSpawnPoint.x, 0, levelData.playerSpawnPoint.y);
-        var player = Object.Instantiate(gameData.playerPrefab, pos, Quaternion.identity);
+        var pos = levelData.playerSpawnPoint;
+        var pPos = new Vector3(pos.x, 0, pos.y);
+        var p = gameData.playerPrefab;
+        var r = p.transform.rotation;
+        var player = Object.Instantiate(p, pPos, r);
     }
 
     private void SpawnMeows()
@@ -77,11 +78,24 @@ public class Spawner
             var pos = Vector3.forward * i * 400;
             var m = levelData.mapPrefab;
             var map = Object.Instantiate(m, pos, m.transform.rotation);
-            
+
             var id = Random.Range(0, levelData.decorationPrefabs.Length);
             var d = levelData.decorationPrefabs[id];
             var deco = Object.Instantiate(d, pos, d.transform.rotation);
         }
+
+        for (int i = 0; i < levelData.checkpointPoints.Length; i++)
+        {
+            var cPos = levelData.checkpointPoints[i];
+            var checkpointPos = new Vector3(cPos.x, 0, cPos.y);
+            var c = gameData.checkpointPrefab;
+            var checkpoint = Object.Instantiate(c, checkpointPos, c.transform.rotation);
+        }
+
+        var ePos = levelData.exitPoints;
+        var exitPos = new Vector3(ePos.x, 0, ePos.y);
+        var e = gameData.exitPrefab;
+        var exit = Object.Instantiate(e, exitPos, e.transform.rotation);
     }
 
     private void SpawnTsunami()

@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace MeowRescue.Player
 {
@@ -13,7 +12,12 @@ namespace MeowRescue.Player
             input = new InputSystem_Actions();
             input.Enable();
 
-            joystick = GameObject.FindObjectOfType<Joystick>();
+            joystick = Object.FindObjectsByType<Joystick>(FindObjectsSortMode.None)[0];
+        }
+
+        public void OnDisable()
+        {
+            input.Disable();
         }
 
         public Vector2 GetMovement()

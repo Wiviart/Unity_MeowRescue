@@ -30,9 +30,19 @@ namespace MeowRescue.Player
             startPosition = transform.position;
         }
 
+        void Start()
+        {
+            LevelManager.Instance.UpdateCurrency(reward.Gold);
+        }
+
+        private void OnDisable()
+        {
+            input.OnDisable();
+        }
+
         private void Update()
         {
-            var isPlaying = LevelManager.Instance.gameState == GameState.Playing;
+            var isPlaying = LevelManager.Instance.GameState == GameState.Playing;
             var movement = isPlaying ? input.GetMovement() : Vector2.zero;
             var magnitude = isPlaying ? Mathf.Clamp01(movement.magnitude) : 0;
 
@@ -50,22 +60,25 @@ namespace MeowRescue.Player
 
             if (other.gameObject.CompareTag(ConstTag.TSUNAMI))
             {
-                LevelManager.Instance.gameState = GameState.GameOver;
                 CalculateReward();
+                LevelManager.Instance.SetState(GameState.GameOver);
             }
 
             if (other.gameObject.CompareTag(ConstTag.EXIT))
             {
-                LevelManager.Instance.gameState = GameState.GameWin;
+                CalculateReward();
+                LevelManager.Instance.SetState(GameState.GameWin);
             }
         }
 
         private void CalculateReward()
         {
             var distance = Vector3.Distance(startPosition, transform.position);
-            var s = Mathf.FloorToInt(distance);
+            var isAvailable = startPosition.z < transform.position.z;
+            var s = isAvailable ? Mathf.FloorToInt(distance) : 0;
             Debug.Log($"Score: {s} for distance: {distance} meters");
             reward.AddGold(s);
+            LevelManager.Instance.UpdateCurrency(reward.Gold);
         }
     }
 }

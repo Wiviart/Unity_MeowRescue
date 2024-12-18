@@ -449,7 +449,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1429709036713237940}
   - component: {fileID: 640756891080771208}
-  - component: {fileID: 669147727823258264}
   m_Layer: 0
   m_Name: Doc_Mesh
   m_TagString: Untagged
@@ -570,18 +569,6 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.00000011920929, y: 2.383797, z: -0.020546734}
     m_Extent: {x: 2.7162719, y: 2.7595766, z: 0.6414573}
   m_DirtyAABB: 0
---- !u!114 &669147727823258264
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2408648490123546643}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 034bc47afcbf5e141a58d5c20b7808e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2533993149635793521
 GameObject:
   m_ObjectHideFlags: 0

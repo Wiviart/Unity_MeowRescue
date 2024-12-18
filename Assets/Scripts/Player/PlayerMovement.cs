@@ -5,7 +5,7 @@ namespace MeowRescue.Player
     public class PlayerMovement
     {
         private readonly CharacterController controller;
-        private const float startSpeed = 1;
+        private const float startSpeed = 100;
         private float speed = startSpeed;
 
         public PlayerMovement(MonoBehaviour mono)
@@ -24,8 +24,9 @@ namespace MeowRescue.Player
 
         private void RotatePlayer(Vector3 direction)
         {
-            var targetRotation = Quaternion.LookRotation(direction, Vector3.up);
-            controller.transform.rotation = Quaternion.Slerp(controller.transform.rotation, targetRotation, 0.15f);
+            if(direction==Vector3.zero) return;
+            var rotation = Quaternion.LookRotation(direction, Vector3.up);
+            controller.transform.rotation = Quaternion.Slerp(controller.transform.rotation, rotation, 0.15f);
         }
     }
 }

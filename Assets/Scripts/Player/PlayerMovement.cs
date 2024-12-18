@@ -1,3 +1,5 @@
+using MeowRescue.Data;
+using MeowRescue.Utilities;
 using UnityEngine;
 
 namespace MeowRescue.Player
@@ -5,12 +7,13 @@ namespace MeowRescue.Player
     public class PlayerMovement
     {
         private readonly CharacterController controller;
-        private const float startSpeed = 100;
-        private float speed = startSpeed;
+        private float speed = ConstTag.startSpeed;
 
         public PlayerMovement(MonoBehaviour mono)
         {
             controller = mono.GetComponent<CharacterController>();
+            Loader.Load(StatsType.Speed.ToString(), out float s);
+            speed = Mathf.Max(s, speed);
         }
 
         public void Move(Vector2 movement)
@@ -24,9 +27,16 @@ namespace MeowRescue.Player
 
         private void RotatePlayer(Vector3 direction)
         {
-            if(direction==Vector3.zero) return;
+            if (direction == Vector3.zero) return;
             var rotation = Quaternion.LookRotation(direction, Vector3.up);
             controller.transform.rotation = Quaternion.Slerp(controller.transform.rotation, rotation, 0.15f);
+        }
+
+        public void UpdateSpeed(StatsType type)
+        {
+            if (type != StatsType.Speed) return;
+            speed += 0.1f;
+            Saver.Save(StatsType.Speed.ToString(), speed);
         }
     }
 }

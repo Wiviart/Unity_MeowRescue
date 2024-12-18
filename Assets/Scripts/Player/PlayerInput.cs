@@ -25,7 +25,6 @@ namespace MeowRescue.Player
             Vector2 inputSystemMovement = input.Player.Move.ReadValue<Vector2>();
             Vector2 joystickMovement = joystick != null ? joystick.Direction : Vector2.zero;
 
-            // If the joystick is active (non-zero), prioritize its input
             return joystickMovement.magnitude > 0 ? joystickMovement : inputSystemMovement;
         }
     }

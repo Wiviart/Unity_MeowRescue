@@ -1,3 +1,4 @@
+using MeowRescue.Data;
 using UnityEngine;
 
 namespace Score
@@ -9,14 +10,13 @@ namespace Score
 
         public PlayerGold()
         {
-            gold = PlayerPrefs.GetInt(ConstTag.GOLD, 0);
+            Loader.Load(ConstTag.GOLD, out gold);
         }
 
         public void AddGold(int value)
         {
             gold += value;
-
-            PlayerPrefs.SetInt(ConstTag.GOLD, gold);
+            Saver.Save(ConstTag.GOLD, gold);
         }
 
         public void ResetGold()

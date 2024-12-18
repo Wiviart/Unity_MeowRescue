@@ -17,9 +17,8 @@ namespace MeowRescue.Player
         {
             meows.Push(meow);
             meow.SetParent(player);
-            float newY = 2 + ((meows.Count - 1) * 1);
-            float newZ = 1;
-            meow.localPosition = new Vector3(0, newY, newZ);
+            float newY = 1 + meows.Count;
+            meow.localPosition = new Vector3(0, newY, 1);
             meow.localRotation = Quaternion.Euler(0, 90, 0);
         }
 

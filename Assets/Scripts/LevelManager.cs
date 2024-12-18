@@ -1,21 +1,18 @@
 using System;
+using MeowRescue.Data;
 using MeowRescue.Utilities;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class LevelManager : Singleton<LevelManager>
+public class LevelManager : MonoBehaviour
 {
     [SerializeField] private GameData gameData;
-    [SerializeField] private CurrencyUI currencyUI;
     private LevelData levelData;
     private int levelIndex;
-    public GameState GameState { set; get; } = GameState.Init;
+    public static GameState GameState { private set; get; } = GameState.Init;
 
     private void Awake()
     {
-        Instance = this;
-
-        levelIndex = PlayerPrefs.GetInt(ConstTag.LEVEL, 0);
+        Loader.Load(ConstTag.LEVEL, out levelIndex);
         levelData = gameData.levels[levelIndex];
     }
 
@@ -28,42 +25,20 @@ public class LevelManager : Singleton<LevelManager>
         spawner.Spawn(SpawnType.Tsunami);
 
         GameState = GameState.Playing;
+
+        Observer.Instance.OnGameEnded += GameOver;
     }
 
-    public void SetState(GameState state)
+    private void GameOver()
     {
-        GameState = state;
-
-        switch (state)
-        {
-            case GameState.GameWin:
-                UnlockLevel();
-                RestartLevel();
-                break;
-            case GameState.GameOver:
-                RestartLevel();
-                break;
-        }
+        GameState = GameState.GameOver;
     }
 
-    public void UnlockLevel()
+    [ContextMenu("Reset Game")]
+    public void ResetGame()
     {
-        if (levelIndex >= gameData.levels.Length - 1) return;
-
-        levelIndex++;
-        PlayerPrefs.SetInt(ConstTag.LEVEL, levelIndex);
-        print(levelIndex);
-    }
-
-    public void RestartLevel()
-    {
-        var scene = SceneManager.GetActiveScene().name;
-        SceneManager.LoadSceneAsync(scene);
-    }
-
-    public void UpdateCurrency(int currency)
-    {
-        currencyUI.UpdateCurrency(currency);
+        Saver.Reset();
+        print("Game has been reset.");
     }
 }
 
@@ -71,6 +46,5 @@ public enum GameState
 {
     Init,
     Playing,
-    GameWin,
     GameOver
 }

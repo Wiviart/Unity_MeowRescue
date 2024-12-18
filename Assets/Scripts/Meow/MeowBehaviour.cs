@@ -1,3 +1,4 @@
+using MeowRescue.Data;
 using UnityEngine;
 
 namespace MeowRescue.Meow
@@ -8,7 +9,7 @@ namespace MeowRescue.Meow
 
         private void Start()
         {
-            speed = PlayerPrefs.GetInt(ConstTag.LEVEL, 0);
+            Loader.Load(ConstTag.LEVEL, out speed);
         }
     }
 }

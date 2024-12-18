@@ -32,7 +32,8 @@ namespace MeowRescue.Player
 
         void Start()
         {
-            LevelManager.Instance.UpdateCurrency(reward.Gold);
+            Observer.Instance.OnGameEnded += CalculateReward;
+            Observer.Instance.OnPlayerUpgradeChanged += Upgrade;
         }
 
         private void OnDisable()
@@ -42,7 +43,7 @@ namespace MeowRescue.Player
 
         private void Update()
         {
-            var isPlaying = LevelManager.Instance.GameState == GameState.Playing;
+            var isPlaying = LevelManager.GameState == GameState.Playing;
             var movement = isPlaying ? input.GetMovement() : Vector2.zero;
             var magnitude = isPlaying ? Mathf.Clamp01(movement.magnitude) : 0;
 
@@ -56,18 +57,12 @@ namespace MeowRescue.Player
             if (other.gameObject.CompareTag(ConstTag.MEOW))
             {
                 collector.Collect(other.transform);
+                anim.SetLayerWeight(ConstTag.CATCH_LAYER, 1);
             }
 
             if (other.gameObject.CompareTag(ConstTag.TSUNAMI))
             {
-                CalculateReward();
-                LevelManager.Instance.SetState(GameState.GameOver);
-            }
-
-            if (other.gameObject.CompareTag(ConstTag.EXIT))
-            {
-                CalculateReward();
-                LevelManager.Instance.SetState(GameState.GameWin);
+                Observer.Instance.GameEnded();
             }
         }
 
@@ -78,7 +73,13 @@ namespace MeowRescue.Player
             var s = isAvailable ? Mathf.FloorToInt(distance) : 0;
             Debug.Log($"Score: {s} for distance: {distance} meters");
             reward.AddGold(s);
-            LevelManager.Instance.UpdateCurrency(reward.Gold);
+
+            Observer.Instance.GoldChanged(reward.Gold);
+        }
+
+        private void Upgrade(StatsType type)
+        {
+            mover.UpdateSpeed(StatsType.Speed);
         }
     }
 }

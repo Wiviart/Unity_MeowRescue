@@ -1,5 +1,3 @@
-using System;
-using MeowRescue.Data;
 using MeowRescue.Utilities;
 using TMPro;
 using UnityEngine;
@@ -21,25 +19,13 @@ public class UpgradeButton : MonoBehaviour
 
     private void Start()
     {
-        Observer.Instance.OnPlayerUpgradeChanged += UpdateUI;
-
-        Invoke(nameof(UpdateUI), 0.1f);
+        Observer.Instance.OnSpeedChanged += UpdateUI;
     }
 
-    private void UpdateUI()
+    private void UpdateUI(float speed, int cost)
     {
-        UpdateUI(upgradeType);
-    }
-
-    private void UpdateUI(StatsType type)
-    {
-        if (type != upgradeType) return;
-
         upgradeName.text = upgradeType.ToString();
-
-        Loader.Load(upgradeName.text, out float current);
-        currentValue.text = current.ToString();
-        Loader.Load(upgradeName.text + "Cost", out int cost);
+        currentValue.text = speed.ToString("F1");
         upgradeCost.text = cost.ToString();
     }
 

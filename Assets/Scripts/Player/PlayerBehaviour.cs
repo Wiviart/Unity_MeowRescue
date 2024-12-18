@@ -1,6 +1,5 @@
-using System;
+using MeowRescue.Score;
 using MeowRescue.Utilities;
-using Score;
 using UnityEngine;
 
 namespace MeowRescue.Player
@@ -12,28 +11,28 @@ namespace MeowRescue.Player
         private PlayerVisual visual;
         private AnimatorHandler anim;
         private PlayerCollector collector;
-        private PlayerGold reward;
+        private PlayerGold goldCounter;
+        private SpeedHandler speedHandler;
         [SerializeField] private GameObject playerVisual;
         private Vector3 startPosition;
 
-        private void Awake()
+        private void Start()
         {
+            Observer.Instance.OnGameEnded += CalculateReward;
+            Observer.Instance.OnGameWin += CalculateReward;
+            Observer.Instance.OnPlayerUpgradeChanged += UpgradeStats;
+
             visual = new PlayerVisual(playerVisual);
             visual.SetUpVisuals(transform);
 
             input = new PlayerInput();
-            mover = new PlayerMovement(this);
+            goldCounter = new PlayerGold();
+            speedHandler = new SpeedHandler(goldCounter);
             anim = new AnimatorHandler(this);
+            mover = new PlayerMovement(this, speedHandler);
             collector = new PlayerCollector(transform);
-            reward = new PlayerGold();
 
             startPosition = transform.position;
-        }
-
-        void Start()
-        {
-            Observer.Instance.OnGameEnded += CalculateReward;
-            Observer.Instance.OnPlayerUpgradeChanged += Upgrade;
         }
 
         private void OnDisable()
@@ -64,6 +63,11 @@ namespace MeowRescue.Player
             {
                 Observer.Instance.GameEnded();
             }
+
+            if (other.gameObject.CompareTag(ConstTag.EXIT))
+            {
+                Observer.Instance.GameWin();
+            }
         }
 
         private void CalculateReward()
@@ -72,14 +76,25 @@ namespace MeowRescue.Player
             var isAvailable = startPosition.z < transform.position.z;
             var s = isAvailable ? Mathf.FloorToInt(distance) : 0;
             Debug.Log($"Score: {s} for distance: {distance} meters");
-            reward.AddGold(s);
-
-            Observer.Instance.GoldChanged(reward.Gold);
+            goldCounter.AddGold(s);
+            Observer.Instance.ScoreChanged(distance);
         }
 
-        private void Upgrade(StatsType type)
+
+        private void UpgradeStats(StatsType upgradeType)
         {
-            mover.UpdateSpeed(StatsType.Speed);
+            switch (upgradeType)
+            {
+                case StatsType.Speed:
+                    speedHandler.UpdateSpeed();
+                    break;
+                case StatsType.Stamina:
+                    break;
+                case StatsType.Income:
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

@@ -10,4 +10,5 @@ public class GameData : ScriptableObject
 
     public LevelData[] levels;
     public GameObject checkpointPrefab;
+    public GameObject exitPrefab;
 }

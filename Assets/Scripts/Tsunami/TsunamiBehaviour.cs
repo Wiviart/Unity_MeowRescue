@@ -1,4 +1,3 @@
-using MeowRescue.Utilities;
 using UnityEngine;
 
 public class TsunamiBehaviour : MonoBehaviour

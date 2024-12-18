@@ -27,6 +27,11 @@ public class LevelManager : MonoBehaviour
         GameState = GameState.Playing;
 
         Observer.Instance.OnGameEnded += GameOver;
+        Observer.Instance.OnGameWin += () =>
+        {
+            GameState = GameState.GameWin;
+            UnlockLevel();
+        };
     }
 
     private void GameOver()
@@ -40,11 +45,21 @@ public class LevelManager : MonoBehaviour
         Saver.Reset();
         print("Game has been reset.");
     }
+
+    private void UnlockLevel()
+    {
+        if (levelIndex >= gameData.levels.Length - 1) return;
+
+        levelIndex++;
+        PlayerPrefs.SetInt(ConstTag.LEVEL, levelIndex);
+        print(levelIndex);
+    }
 }
 
 public enum GameState
 {
     Init,
     Playing,
+    GameWin,
     GameOver
 }

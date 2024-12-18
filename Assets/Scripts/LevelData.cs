@@ -10,5 +10,7 @@ public class LevelData : ScriptableObject
     [Header("Meow")] public Vector2[] meowSpawnPoints;
 
     [Header("Map")] public GameObject mapPrefab;
+    public GameObject[] decorationPrefabs;
     public Vector2 checkpointPoints = new(50, 400);
+    public Vector2 exitPoints = new(50, 1400);
 }

@@ -73,9 +73,26 @@ public class Spawner
 
     private void SpawnMap()
     {
-        var pos = Vector3.forward;
-        var m = levelData.mapPrefab;
-        var map = Object.Instantiate(m, pos, m.transform.rotation);
+        for (int i = 0; i < 4; i++)
+        {
+            var pos = Vector3.forward * i * 400;
+            var m = levelData.mapPrefab;
+            var map = Object.Instantiate(m, pos, m.transform.rotation);
+
+            var id = Random.Range(0, levelData.decorationPrefabs.Length);
+            var d = levelData.decorationPrefabs[id];
+            var deco = Object.Instantiate(d, pos, d.transform.rotation);
+        }
+
+        var cPos = levelData.checkpointPoints;
+        var checkpointPos = new Vector3(cPos.x, 0, cPos.y);
+        var c = gameData.checkpointPrefab;
+        var checkpoint = Object.Instantiate(c, checkpointPos, c.transform.rotation);
+
+        var ePos = levelData.exitPoints;
+        var exitPos = new Vector3(ePos.x, 0, ePos.y);
+        var e = gameData.exitPrefab;
+        var exit = Object.Instantiate(e, exitPos, e.transform.rotation);
     }
 
     private void SpawnCheckpoint()

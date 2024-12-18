@@ -13,9 +13,11 @@ public struct ConstTag
     public const string LEVEL = "Level";
 
     public const int CATCH_LAYER = 1;
-    
-    public const float startSpeed = 10;
+
+    public const string SPEED = "Speed";
+    public const string SPEED_COST = "Speed Cost";
+    public const float startSpeed = 1;
     public const float speedMultiplier = 0.1f;
-    public const int speedUpgradeBeginCost = 30;
+    public const int speedUpgradeBeginCost = 10;
     public const int speedUpgradeCostMultiplier = 2;
 }

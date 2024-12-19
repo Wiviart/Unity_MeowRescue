@@ -7,7 +7,7 @@ public struct ConstTag
     public const string CHECKPOINT = "Checkpoint";
 
     public const string RUN = "Run";
-    public const string MOVEMENT = "Movement Multiplier";
+    public const string MOVEMENT = "Movement";
 
     public const string GOLD = "Gold";
     public const string LEVEL = "Level";

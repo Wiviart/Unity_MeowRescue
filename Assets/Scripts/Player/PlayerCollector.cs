@@ -7,6 +7,7 @@ namespace MeowRescue.Player
     {
         private readonly Transform player;
         private Stack<Transform> meows = new();
+        public int CaughtMeows => meows.Count;
 
         public PlayerCollector(Transform player)
         {
@@ -27,11 +28,6 @@ namespace MeowRescue.Player
             if (meows.Count == 0) return;
             var meow = meows.Pop();
             meow.SetParent(null);
-        }
-
-        public bool HasAllMeows(int count)
-        {
-            return meows.Count == count;
         }
     }
 }

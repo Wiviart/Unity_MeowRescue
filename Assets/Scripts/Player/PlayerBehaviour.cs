@@ -11,7 +11,7 @@ namespace MeowRescue.Player
         private PlayerInput input;
         private PlayerMovement mover;
         private PlayerVisual visual;
-        private AnimatorHandler anim;
+        private AAnimator anim;
         private PlayerCollector collector;
         private PlayerGold goldCounter;
         private SpeedHandler speedHandler;
@@ -33,7 +33,7 @@ namespace MeowRescue.Player
             input = new PlayerInput();
             goldCounter = new PlayerGold();
             speedHandler = new SpeedHandler(goldCounter);
-            anim = new AnimatorHandler(this);
+            anim = new AAnimator(this);
             mover = new PlayerMovement(this, speedHandler);
             collector = new PlayerCollector(transform);
 
@@ -47,7 +47,7 @@ namespace MeowRescue.Player
 
         private void Update()
         {
-            var isPlaying = LevelManager.Instance.GameState == GameState.Playing;
+            var isPlaying = LevelManager.GameState == GameState.Playing;
             var movement = isPlaying ? input.GetMovement() : Vector2.zero;
             var magnitude = isPlaying ? Mathf.Clamp01(movement.magnitude) : 0;
 
@@ -64,6 +64,7 @@ namespace MeowRescue.Player
                 var meow = other.GetComponent<ICollectable>();
                 meow?.Collect();
                 anim.SetLayerWeight(ConstTag.CATCH_LAYER, 1);
+                Observer.Instance.MeowCaught();
             }
 
             if (other.gameObject.CompareTag(ConstTag.TSUNAMI))
@@ -73,10 +74,7 @@ namespace MeowRescue.Player
 
             if (other.gameObject.CompareTag(ConstTag.EXIT))
             {
-                if (collector.HasAllMeows(LevelManager.Instance.MeowCount()))
-                    Observer.Instance.GameWin();
-                else
-                    Observer.Instance.GameEnded();
+                Observer.Instance.GameFinished(collector.CaughtMeows);
             }
         }
 

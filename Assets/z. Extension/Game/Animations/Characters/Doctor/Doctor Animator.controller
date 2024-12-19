@@ -59,7 +59,7 @@ AnimatorController:
   m_Name: Doctor Animator
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: Movement Multiplier
+  - m_Name: Movement
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -158,7 +158,7 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: Movement Speed
     m_Mirror: 0
-  m_BlendParameter: Movement Multiplier
+  m_BlendParameter: Movement
   m_BlendParameterY: Movement Speed
   m_MinThreshold: 0
   m_MaxThreshold: 1

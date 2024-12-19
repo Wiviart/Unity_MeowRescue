@@ -2,17 +2,16 @@ using MeowRescue.Data;
 using MeowRescue.Utilities;
 using UnityEngine;
 
-public class LevelManager : Singleton<LevelManager>
+public class LevelManager : MonoBehaviour
 {
     [SerializeField] private GameData gameData;
     private LevelData levelData;
     private int levelIndex;
-    public GameState GameState { private set; get; } = GameState.Init;
+    public static GameState GameState { private set; get; } = GameState.Init;
+    private int meowCount = 0;
 
     private void Awake()
     {
-        Instance = this;
-
         Loader.Load(ConstTag.LEVEL, out levelIndex);
         levelData = gameData.levels[levelIndex];
         Debug.Log("Level: " + levelIndex);
@@ -34,6 +33,10 @@ public class LevelManager : Singleton<LevelManager>
             GameState = GameState.GameWin;
             UnlockLevel();
         };
+        Observer.Instance.OnGameFinished += GameFinished;
+        Observer.Instance.OnMeowCatched += CountMeow;
+        
+        Observer.Instance.MeowChanged(meowCount, levelData.meowPoints.Length);
     }
 
     private void GameOver()
@@ -57,9 +60,18 @@ public class LevelManager : Singleton<LevelManager>
         print("Level Unlocked: " + levelIndex);
     }
 
-    public int MeowCount()
+    private void GameFinished(int caught)
     {
-        return levelData.meowPoints.Length;
+        if (caught == levelData.meowPoints.Length)
+            Observer.Instance.GameWin();
+        else
+            Observer.Instance.GameEnded();
+    }
+
+    private void CountMeow()
+    {
+        meowCount++;
+        Observer.Instance.MeowChanged(meowCount, levelData.meowPoints.Length);
     }
 }
 

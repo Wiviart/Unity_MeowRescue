@@ -12,7 +12,10 @@ namespace MeowRescue.Utilities
         public Action OnGameStarted;
         public Action OnGameEnded;
         public Action OnGameWin;
+        public Action<int> OnGameFinished;
         public Action<float> OnScoreChanged;
+        public Action<int,int> OnMeowChanged;
+        public Action OnMeowCatched;
 
         public void GoldChanged(int gold)
         {
@@ -42,6 +45,21 @@ namespace MeowRescue.Utilities
         public void SpeedChanged(float speed, int cost)
         {
             OnSpeedChanged?.Invoke(speed, cost);
+        }
+        
+        public void MeowChanged(int meow, int maxMeow)
+        {
+            OnMeowChanged?.Invoke(meow, maxMeow);
+        }
+        
+        public void MeowCaught()
+        {
+            OnMeowCatched?.Invoke();
+        }
+        
+        public void GameFinished(int caught)
+        {
+            OnGameFinished?.Invoke(caught);
         }
 
         private void Awake()

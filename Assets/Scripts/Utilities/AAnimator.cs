@@ -4,12 +4,12 @@ using UnityEngine;
 
 namespace MeowRescue.Utilities
 {
-    public class AnimatorHandler
+    public class AAnimator
     {
-        private Animator anim;
-        private MonoBehaviour mono;
+        private readonly Animator anim;
+        private readonly MonoBehaviour mono;
 
-        public AnimatorHandler(MonoBehaviour mono)
+        public AAnimator(MonoBehaviour mono)
         {
             this.mono = mono;
             anim = mono.GetComponentInChildren<Animator>();

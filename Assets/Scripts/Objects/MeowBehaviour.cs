@@ -1,5 +1,6 @@
 using MeowRescue.Data;
 using MeowRescue.Player;
+using MeowRescue.Utilities;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -13,21 +14,29 @@ namespace MeowRescue.Meow
         public LayerMask obstacleLayer;
         private Vector3 currentDirection;
         private bool isCollected;
+        private AAnimator anim;
 
         private void Start()
         {
             Loader.Load(ConstTag.LEVEL, out speed);
-            speed *= 5;
+            speed++;
+            speed *= 10;
             player = FindObjectsByType<PlayerBehaviour>(FindObjectsSortMode.None)[0].transform;
 
             currentDirection = Vector3.forward;
+
+            anim = new AAnimator(this);
         }
 
         private void Update()
         {
             if (isCollected) return;
             var dis = Vector3.Distance(player.position, transform.position);
-            if (dis > 10) return;
+            if (dis > 10)
+            {
+                anim.SetParameter(ConstTag.RUN, false);
+                return;
+            }
 
             var awayFromPlayer = (transform.position - player.position).normalized;
             float randomAngle = Random.Range(-90, 90);
@@ -43,6 +52,9 @@ namespace MeowRescue.Meow
             var target = Quaternion.LookRotation(currentDirection);
             transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * 5);
             transform.position += currentDirection * speed * Time.deltaTime;
+
+            anim.SetParameter(ConstTag.RUN, true);
+            anim.SetParameter(ConstTag.MOVEMENT, (float)1);
         }
 
         private bool IsObstacleAhead(Vector3 direction)

@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 6632435876486379648}
   - component: {fileID: 7175627093143221035}
   - component: {fileID: 6611382748541304471}
+  - component: {fileID: -2142306616838765452}
   m_Layer: 10
   m_Name: Cupboard_03
   m_TagString: Untagged
@@ -212,3 +213,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.4392471, y: 5.480821, z: 2.39451}
   m_Center: {x: 0, y: 2.742317, z: -0.0066589117}
+--- !u!114 &-2142306616838765452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5119424245292161365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a9b3d0500244304b6fd5618d5937784, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstacleDetectionDistance: 5
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 2048

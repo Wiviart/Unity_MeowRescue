@@ -1,4 +1,3 @@
-using System;
 using MeowRescue.Data;
 using MeowRescue.Utilities;
 using UnityEngine;
@@ -13,9 +12,10 @@ public class LevelManager : Singleton<LevelManager>
     private void Awake()
     {
         Instance = this;
-        
+
         Loader.Load(ConstTag.LEVEL, out levelIndex);
         levelData = gameData.levels[levelIndex];
+        Debug.Log("Level: " + levelIndex);
     }
 
     private void Start()
@@ -54,7 +54,7 @@ public class LevelManager : Singleton<LevelManager>
 
         levelIndex++;
         PlayerPrefs.SetInt(ConstTag.LEVEL, levelIndex);
-        print(levelIndex);
+        print("Level Unlocked: " + levelIndex);
     }
 
     public int MeowCount()

@@ -17,9 +17,6 @@ namespace MeowRescue.Meow
         private void Start()
         {
             Loader.Load(ConstTag.LEVEL, out speed);
-#if UNITY_EDITOR
-            speed = 5;
-#endif
             speed *= 5;
             player = FindObjectsByType<PlayerBehaviour>(FindObjectsSortMode.None)[0].transform;
 

@@ -102,8 +102,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8657806082999248928}
   - component: {fileID: 520253996903806250}
-  m_Layer: 10
-  m_Name: Exit (7)
+  m_Layer: 11
+  m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -155,8 +155,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1008451586434669811}
   - component: {fileID: 3997708395591719900}
-  m_Layer: 10
-  m_Name: Exit (5)
+  m_Layer: 11
+  m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -208,8 +208,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8787304578840089367}
   - component: {fileID: 1425425159137160120}
-  m_Layer: 10
-  m_Name: Exit (4)
+  m_Layer: 11
+  m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -261,8 +261,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6974263725111111465}
   - component: {fileID: 3025897019569119478}
-  m_Layer: 10
-  m_Name: Exit (6)
+  m_Layer: 11
+  m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -314,8 +314,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6822044788068096840}
   - component: {fileID: 3930335298578021599}
-  m_Layer: 10
-  m_Name: Exit (2)
+  m_Layer: 11
+  m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -367,8 +367,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5858299258065871900}
   - component: {fileID: 2326054496506284448}
-  m_Layer: 10
-  m_Name: Exit
+  m_Layer: 11
+  m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -420,8 +420,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6769907474804152479}
   - component: {fileID: 2453552101367870791}
-  m_Layer: 10
-  m_Name: Exit (3)
+  m_Layer: 11
+  m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -473,8 +473,8 @@ GameObject:
   m_Component:
   - component: {fileID: 649367630488474641}
   - component: {fileID: 8309929002689231270}
-  m_Layer: 10
-  m_Name: Exit (1)
+  m_Layer: 11
+  m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

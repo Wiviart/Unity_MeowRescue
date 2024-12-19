@@ -230,7 +230,7 @@ MonoBehaviour:
   obstacleDetectionDistance: 5
   obstacleLayer:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 3072
 --- !u!1 &3819351529795227812
 GameObject:
   m_ObjectHideFlags: 0

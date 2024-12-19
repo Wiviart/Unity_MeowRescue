@@ -39,11 +39,7 @@ namespace MeowRescue.Player
         {
             Observer.Instance.OnGameStart += StartGame;
             Observer.Instance.OnGameEnded += CalculateReward;
-            Observer.Instance.OnGameWin += () =>
-            {
-                CalculateReward();
-                speedHandler.ResetSpeed();
-            };
+            Observer.Instance.OnGameWin += CalculateReward;
             Observer.Instance.OnPlayerUpgrade += UpgradeStats;
         }
 
@@ -54,7 +50,6 @@ namespace MeowRescue.Player
 
         private void Update()
         {
-            // isPlaying = LevelManager.GameState == GameState.Playing;
             var movement = isPlaying ? input.GetMovement() : Vector2.zero;
             var magnitude = isPlaying ? Mathf.Clamp01(movement.magnitude) : 0;
 

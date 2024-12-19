@@ -26,8 +26,8 @@ namespace MeowRescue.UI
 
             Observer.Instance.OnScoreChanged += ShowScore;
         }
-        
-        void Start()
+
+        private void Start()
         {
             Hide();
         }

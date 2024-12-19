@@ -6,6 +6,7 @@ namespace MeowRescue.Score
     public class PlayerGold
     {
         private int gold;
+        public int Gold => gold;
         
         public PlayerGold()
         {

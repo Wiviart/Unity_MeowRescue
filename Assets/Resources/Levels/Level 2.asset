@@ -10,17 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 584e7684787c888438382295e5400c94, type: 3}
-  m_Name: Level 1
+  m_Name: Level 2
   m_EditorClassIdentifier: 
   playerSpawnPoint: {x: 50, y: 0}
   tsunamiSpawnPoint: {x: 50, y: -150}
   meowPoints:
-  - {x: 80, y: 50}
-  - {x: 20, y: 90}
-  - {x: 70, y: 160}
-  - {x: 30, y: 240}
-  - {x: 80, y: 290}
-  - {x: 60, y: 370}
+  - {x: 63, y: 95}
+  - {x: 38, y: 317}
+  - {x: 65, y: 392}
+  - {x: 75, y: 358}
+  - {x: 42, y: 368}
+  - {x: 22, y: 391}
+  - {x: 53, y: 143}
+  - {x: 25, y: 150}
   housePoints:
   - points: {x: 112, y: 224}
     rotations: {x: 0, y: 90, z: 0}
@@ -37,18 +39,27 @@ MonoBehaviour:
   - {x: -14, y: 315}
   - {x: -20, y: 336}
   obstaclePoints:
-  - {x: 10, y: 20}
-  - {x: 30, y: 50}
-  - {x: 60, y: 60}
-  - {x: 40, y: 80}
-  - {x: 80, y: 100}
-  - {x: 20, y: 120}
-  - {x: 70, y: 150}
-  - {x: 50, y: 200}
-  - {x: 90, y: 250}
-  - {x: 10, y: 300}
-  - {x: 70, y: 350}
+  - {x: 35, y: 257}
+  - {x: 75, y: 64}
+  - {x: 4, y: 84}
+  - {x: 28, y: 40}
+  - {x: 38, y: 253}
+  - {x: 37, y: 349}
+  - {x: 48, y: 59}
+  - {x: 17, y: 39}
+  - {x: 67, y: 354}
+  - {x: 47, y: 150}
+  - {x: 0, y: 181}
+  - {x: 84, y: 57}
+  - {x: 46, y: 226}
+  - {x: 76, y: 374}
+  - {x: 44, y: 2}
+  - {x: 82, y: 360}
+  - {x: 50, y: 201}
+  - {x: 54, y: 151}
+  - {x: 64, y: 153}
+  - {x: 79, y: 20}
+  - {x: 88, y: 399}
   mapPrefab: {fileID: 557198301762047424, guid: 9dbb1fc57e0983c499b79e54eea1d205, type: 3}
-  decorationPrefab: {fileID: 6665443483961486754, guid: 59f179c9e5a54974b8b67ba259e949cf, type: 3}
   checkpointPoints: {x: 50, y: 400}
   exitPoints: {x: 50, y: 1400}

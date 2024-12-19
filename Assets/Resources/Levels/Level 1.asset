@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 584e7684787c888438382295e5400c94, type: 3}
+  m_Name: Level 1
+  m_EditorClassIdentifier: 
+  playerSpawnPoint: {x: 50, y: 0}
+  tsunamiSpawnPoint: {x: 50, y: -150}
+  meowPoints:
+  - {x: 50, y: 121}
+  - {x: 50, y: 310}
+  - {x: 77, y: 242}
+  - {x: 41, y: 308}
+  - {x: 69, y: 229}
+  - {x: 53, y: 149}
+  - {x: 38, y: 370}
+  housePoints:
+  - points: {x: 112, y: 224}
+    rotations: {x: 0, y: 90, z: 0}
+  - points: {x: -7, y: 126}
+    rotations: {x: 0, y: -90, z: 0}
+  treePoints:
+  - {x: 119, y: 147}
+  - {x: 112, y: 252}
+  - {x: 126, y: 308}
+  - {x: 119, y: 336}
+  - {x: -14, y: 105}
+  - {x: -20, y: 175}
+  - {x: -10, y: 252}
+  - {x: -14, y: 315}
+  - {x: -20, y: 336}
+  obstaclePoints:
+  - {x: 96, y: 216}
+  - {x: 38, y: 304}
+  - {x: 48, y: 209}
+  - {x: 64, y: 297}
+  - {x: 19, y: 336}
+  - {x: 19, y: 226}
+  - {x: 58, y: 188}
+  - {x: 30, y: 70}
+  - {x: 95, y: 34}
+  - {x: 87, y: 72}
+  - {x: 25, y: 264}
+  - {x: 98, y: 173}
+  - {x: 71, y: 23}
+  - {x: 69, y: 195}
+  - {x: 6, y: 398}
+  - {x: 91, y: 195}
+  mapPrefab: {fileID: 557198301762047424, guid: 9dbb1fc57e0983c499b79e54eea1d205, type: 3}
+  checkpointPoints: {x: 50, y: 400}
+  exitPoints: {x: 50, y: 1400}

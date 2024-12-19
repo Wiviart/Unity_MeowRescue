@@ -13,6 +13,7 @@ namespace MeowRescue.Data
         public GameObject treeSpawnerPrefab;
         public GameObject obstacleSpawnerPrefab;
 
+        public LevelData baseLevelData;
         public LevelData[] levels;
         public GameObject checkpointPrefab;
         public GameObject exitPrefab;

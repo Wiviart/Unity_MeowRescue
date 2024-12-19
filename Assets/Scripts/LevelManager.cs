@@ -1,3 +1,5 @@
+using System;
+using System.Threading.Tasks;
 using MeowRescue.Data;
 using MeowRescue.Spawner;
 using MeowRescue.Utilities;
@@ -13,6 +15,9 @@ public class LevelManager : MonoBehaviour
 
     private void Awake()
     {
+        gameData.levels = Resources.LoadAll<LevelData>("Levels");
+        SortLevels(gameData.levels);
+
         Loader.Load(ConstTag.LEVEL, out levelIndex);
         levelData = gameData.levels[levelIndex];
         Debug.Log("Level: " + levelIndex);
@@ -27,7 +32,7 @@ public class LevelManager : MonoBehaviour
         spawner.Spawn(SpawnType.Tsunami);
 
         GameState = GameState.Playing;
-
+        
         Observer.Instance.OnGameEnded += GameOver;
         Observer.Instance.OnGameWin += () =>
         {
@@ -36,8 +41,22 @@ public class LevelManager : MonoBehaviour
         };
         Observer.Instance.OnGameFinished += GameFinished;
         Observer.Instance.OnMeowCatched += CountMeow;
-        
+
         Observer.Instance.MeowChanged(meowCount, levelData.meowPoints.Length);
+    }
+
+    void SortLevels(LevelData[] levels)
+    {
+        for (int i = 0; i < levels.Length; i++)
+        {
+            for (int j = i + 1; j < levels.Length; j++)
+            {
+                if (string.Compare(levels[i].name, levels[j].name, StringComparison.Ordinal) > 0)
+                {
+                    (levels[i], levels[j]) = (levels[j], levels[i]);
+                }
+            }
+        }
     }
 
     private void GameOver()
@@ -46,7 +65,7 @@ public class LevelManager : MonoBehaviour
     }
 
     [ContextMenu("Reset Game")]
-    public void ResetGame()
+    private void ResetGame()
     {
         Saver.Reset();
         print("Game has been reset.");
@@ -73,6 +92,13 @@ public class LevelManager : MonoBehaviour
     {
         meowCount++;
         Observer.Instance.MeowChanged(meowCount, levelData.meowPoints.Length);
+    }
+
+    [ContextMenu("Create Levels")]
+    private void CreateLevels()
+    {
+        var spawner = new LevelGeneration(gameData.baseLevelData);
+        spawner.GenerateLevels(10);
     }
 }
 

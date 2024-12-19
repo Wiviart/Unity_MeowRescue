@@ -31,8 +31,6 @@ namespace MeowRescue.Player
 #endif
 
             Speed += ConstTag.speedMultiplier;
-            // int pow = (int)((Speed - ConstTag.startSpeed) / ConstTag.speedMultiplier);
-            // cost = ConstTag.speedUpgradeBeginCost + (int)Mathf.Pow(2, pow);
             cost += ConstTag.speedUpgradeCostMultiplier;
             playerGold.AddGold(-cost);
 

@@ -19,7 +19,7 @@ MonoBehaviour:
   houseSpawnerPrefab: {fileID: 8583133401287771829, guid: 45082854041aae64fb2f07f0108f5374, type: 3}
   treeSpawnerPrefab: {fileID: 7021665939275947558, guid: 7e2ba6326f52b874dbf081410d653277, type: 3}
   obstacleSpawnerPrefab: {fileID: 7021665939275947558, guid: 6460645c64f3cd1439b19340f64bfb1b, type: 3}
-  baseLevelData: {fileID: 11400000, guid: 6d9d713166d660446be558b416066ab9, type: 2}
+  baseLevelData: {fileID: 11400000, guid: 07909bb1e8af05d46b9984e2d6bd3029, type: 2}
   levels: []
   checkpointPrefab: {fileID: 2738786349271990852, guid: 2ed3cb3f258e34549ac075a27e0828d5, type: 3}
   exitPrefab: {fileID: 2519769472558682817, guid: 20952fb87283b17478714bdadf9cf392, type: 3}

@@ -16,7 +16,7 @@ namespace MeowRescue.Utilities
 
         public void GenerateLevels(int levelCount)
         {
-            for (int i = 0; i < levelCount; i++)
+            for (int i = 1; i < levelCount; i++)
             {
                 var newLevel = ScriptableObject.CreateInstance<LevelData>();
 

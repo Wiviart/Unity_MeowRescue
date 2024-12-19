@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 882d5c4b865b33c41b772c57cade0a13, type: 3}
+  m_Name: Meow_SpawnerData
+  m_EditorClassIdentifier: 
+  prefabs:
+  - {fileID: 3723217540529644781, guid: 5ca89bbd6a39ebc4491d1c4bf458569d, type: 3}
+  - {fileID: 1978942465877133737, guid: 840538e304cb5444692621810cc633a3, type: 3}
+  - {fileID: 1978942465877133737, guid: 32241343f447c33448f6136cd7f61334, type: 3}
+  - {fileID: 1978942465877133737, guid: 2c37eeb183d94cd47a091ee0ead887f0, type: 3}
+  - {fileID: 1978942465877133737, guid: 1d9479ccb617eec44a4302778d2a2910, type: 3}

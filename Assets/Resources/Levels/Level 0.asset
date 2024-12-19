@@ -15,12 +15,12 @@ MonoBehaviour:
   playerSpawnPoint: {x: 50, y: 0}
   tsunamiSpawnPoint: {x: 50, y: -150}
   meowPoints:
-  - {x: 58, y: 367}
-  - {x: 25, y: 134}
-  - {x: 39, y: 126}
-  - {x: 36, y: 334}
-  - {x: 39, y: 270}
-  - {x: 20, y: 368}
+  - {x: 27, y: 104}
+  - {x: 43, y: 248}
+  - {x: 70, y: 354}
+  - {x: 45, y: 128}
+  - {x: 33, y: 236}
+  - {x: 45, y: 282}
   housePoints:
   - points: {x: 112, y: 224}
     rotations: {x: 0, y: 90, z: 0}
@@ -37,17 +37,17 @@ MonoBehaviour:
   - {x: -14, y: 315}
   - {x: -20, y: 336}
   obstaclePoints:
-  - {x: 78, y: 183}
-  - {x: 41, y: 247}
-  - {x: 7, y: 383}
-  - {x: 73, y: 3}
-  - {x: 45, y: 1}
-  - {x: 94, y: 17}
-  - {x: 11, y: 104}
-  - {x: 19, y: 106}
-  - {x: 49, y: 291}
-  - {x: 73, y: 143}
-  - {x: 64, y: 266}
+  - {x: 57, y: 351}
+  - {x: 60, y: 201}
+  - {x: 76, y: 39}
+  - {x: 79, y: 147}
+  - {x: 89, y: 212}
+  - {x: 18, y: 53}
+  - {x: 29, y: 340}
+  - {x: 74, y: 279}
+  - {x: 84, y: 191}
+  - {x: 68, y: 318}
+  - {x: 74, y: 371}
   mapPrefab: {fileID: 557198301762047424, guid: 9dbb1fc57e0983c499b79e54eea1d205, type: 3}
   checkpointPoints: {x: 50, y: 400}
   exitPoints: {x: 50, y: 1400}

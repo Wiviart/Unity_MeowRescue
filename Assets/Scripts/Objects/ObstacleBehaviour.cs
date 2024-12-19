@@ -1,7 +1,7 @@
 using MeowRescue.Data;
 using UnityEngine;
 
-namespace MeowRescue.Meow
+namespace MeowRescue.Objects
 {
     public class ObstacleBehaviour : MonoBehaviour
     {

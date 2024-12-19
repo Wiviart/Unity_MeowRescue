@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MeowRescue.Utilities.Spawner
+namespace MeowRescue.Spawner
 {
     public abstract class ASpawner
     {

@@ -1,4 +1,4 @@
-namespace MeowRescue.Meow
+namespace MeowRescue.Utilities
 {
     public interface ICollectable
     {

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MeowRescue.Utilities
+namespace MeowRescue.UI
 {
     public class UI_Button : MonoBehaviour
     {

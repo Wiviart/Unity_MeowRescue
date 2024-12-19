@@ -1,4 +1,4 @@
-namespace MeowRescue.Utilities
+namespace MeowRescue.Player
 {
     public enum StatsType
     {

@@ -1,4 +1,5 @@
 using System;
+using MeowRescue.Player;
 
 namespace MeowRescue.Utilities
 {
@@ -7,9 +8,6 @@ namespace MeowRescue.Utilities
         public Action<int> OnGoldChanged;
         public Action<float, int> OnSpeedChanged;
         public Action<StatsType> OnPlayerUpgradeChanged;
-        public Action<GameState> OnGameStateChanged;
-        public Action OnGameInitialized;
-        public Action OnGameStarted;
         public Action OnGameEnded;
         public Action OnGameWin;
         public Action<int> OnGameFinished;
@@ -72,11 +70,12 @@ namespace MeowRescue.Utilities
             OnGoldChanged = null;
             OnSpeedChanged = null;
             OnPlayerUpgradeChanged = null;
-            OnGameStateChanged = null;
-            OnGameInitialized = null;
-            OnGameStarted = null;
             OnGameEnded = null;
             OnGameWin = null;
+            OnGameFinished = null;
+            OnScoreChanged = null;
+            OnMeowChanged = null;
+            OnMeowCatched = null;
         }
     }
 }

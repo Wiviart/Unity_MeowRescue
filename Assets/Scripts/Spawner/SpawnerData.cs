@@ -1,7 +1,10 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "SpawnerData", menuName = "Scriptable Objects/SpawnerData")]
-public class SpawnerData : ScriptableObject
+namespace MeowRescue.Spawner
 {
-    public GameObject[] prefabs;
+    [CreateAssetMenu(fileName = "SpawnerData", menuName = "Scriptable Objects/SpawnerData")]
+    public class SpawnerData : ScriptableObject
+    {
+        public GameObject[] prefabs;
+    }
 }

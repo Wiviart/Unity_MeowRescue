@@ -1,51 +1,53 @@
-using System;
 using MeowRescue.Utilities;
 using TMPro;
 using UnityEngine;
 
-public class EndPanel : MonoBehaviour
+namespace MeowRescue.UI
 {
-    [SerializeField] private GameObject[] children;
-    [SerializeField] private TextMeshProUGUI panelName;
-    [SerializeField] private TextMeshProUGUI score;
-
-    private void Start()
+    public class EndPanel : MonoBehaviour
     {
-        Observer.Instance.OnGameEnded += () =>
+        [SerializeField] private GameObject[] children;
+        [SerializeField] private TextMeshProUGUI panelName;
+        [SerializeField] private TextMeshProUGUI score;
+
+        private void Start()
         {
-            panelName.text = "RESTART?";
-            Show();
-        };
+            Observer.Instance.OnGameEnded += () =>
+            {
+                panelName.text = "RESTART?";
+                Show();
+            };
 
-        Observer.Instance.OnGameWin += () =>
-        {
-            panelName.text = "NEXT LEVEL?";
-            Show();
-        };
+            Observer.Instance.OnGameWin += () =>
+            {
+                panelName.text = "NEXT LEVEL?";
+                Show();
+            };
 
-        Observer.Instance.OnScoreChanged += ShowScore;
+            Observer.Instance.OnScoreChanged += ShowScore;
 
-        Hide();
-    }
-
-    private void Show()
-    {
-        foreach (var child in children)
-        {
-            child.SetActive(true);
+            Hide();
         }
-    }
 
-    private void Hide()
-    {
-        foreach (var child in children)
+        private void Show()
         {
-            child.SetActive(false);
+            foreach (var child in children)
+            {
+                child.SetActive(true);
+            }
         }
-    }
 
-    private void ShowScore(float s)
-    {
-        score.text = "\nDistance: " + s.ToString("F") + "m.";
+        private void Hide()
+        {
+            foreach (var child in children)
+            {
+                child.SetActive(false);
+            }
+        }
+
+        private void ShowScore(float s)
+        {
+            score.text = "\nDistance: " + s.ToString("F") + "m.";
+        }
     }
 }

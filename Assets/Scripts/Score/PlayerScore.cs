@@ -1,6 +1,4 @@
-using UnityEngine;
-
-namespace Score
+namespace MeowRescue.Score
 {
     public class PlayerScore
     {

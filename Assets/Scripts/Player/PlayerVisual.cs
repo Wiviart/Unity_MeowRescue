@@ -1,16 +1,19 @@
 using UnityEngine;
 
-public class PlayerVisual
+namespace MeowRescue.Player
 {
-    private GameObject prefab;
-
-    public PlayerVisual(GameObject prefab)
+    public class PlayerVisual
     {
-        this.prefab = prefab;
-    }
+        private GameObject prefab;
 
-    public void SetUpVisuals(Transform parent)
-    {
-        var visual = Object.Instantiate(prefab, parent);
+        public PlayerVisual(GameObject prefab)
+        {
+            this.prefab = prefab;
+        }
+
+        public void SetUpVisuals(Transform parent)
+        {
+            var visual = Object.Instantiate(prefab, parent);
+        }
     }
 }

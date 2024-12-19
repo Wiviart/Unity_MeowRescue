@@ -1,11 +1,13 @@
-using MeowRescue.Utilities;
 using UnityEngine.SceneManagement;
 
-public class RestartButton : UI_Button
+namespace MeowRescue.UI
 {
-    protected override void OnClick()
+    public class RestartButton : UI_Button
     {
-        var scene = SceneManager.GetActiveScene().name;
-        SceneManager.LoadSceneAsync(scene);
+        protected override void OnClick()
+        {
+            var scene = SceneManager.GetActiveScene().name;
+            SceneManager.LoadSceneAsync(scene);
+        }
     }
 }

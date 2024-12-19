@@ -4,7 +4,7 @@ using MeowRescue.Utilities;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace MeowRescue.Meow
+namespace MeowRescue.Objects
 {
     public class MeowBehaviour : MonoBehaviour, ICollectable
     {

@@ -2,17 +2,20 @@ using MeowRescue.Utilities;
 using TMPro;
 using UnityEngine;
 
-public class CurrencyUI : MonoBehaviour
+namespace MeowRescue.UI
 {
-    [SerializeField] private TextMeshProUGUI currencyText;
-
-    private void Start()
+    public class CurrencyUI : MonoBehaviour
     {
-        Observer.Instance.OnGoldChanged += UpdateCurrency;
-    }
+        [SerializeField] private TextMeshProUGUI currencyText;
 
-    public void UpdateCurrency(int currency)
-    {
-        currencyText.text = currency.ToString();
+        private void Start()
+        {
+            Observer.Instance.OnGoldChanged += UpdateCurrency;
+        }
+
+        private void UpdateCurrency(int currency)
+        {
+            currencyText.text = currency.ToString();
+        }
     }
 }

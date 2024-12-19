@@ -2,18 +2,21 @@ using MeowRescue.Utilities;
 using TMPro;
 using UnityEngine;
 
-public class MeowCounter : MonoBehaviour
+namespace MeowRescue.UI
 {
-    private TextMeshProUGUI text;
-
-    private void Start()
+    public class MeowCounter : MonoBehaviour
     {
-        text = GetComponent<TextMeshProUGUI>();
-        Observer.Instance.OnMeowChanged += ShowMeow;
-    }
+        private TextMeshProUGUI text;
 
-    private void ShowMeow(int meow, int maxMeow)
-    {
-        text.text = meow + "/" + maxMeow;
+        private void Start()
+        {
+            text = GetComponent<TextMeshProUGUI>();
+            Observer.Instance.OnMeowChanged += ShowMeow;
+        }
+
+        private void ShowMeow(int meow, int maxMeow)
+        {
+            text.text = meow + "/" + maxMeow;
+        }
     }
 }

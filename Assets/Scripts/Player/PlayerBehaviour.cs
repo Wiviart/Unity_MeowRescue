@@ -1,4 +1,5 @@
-using MeowRescue.Meow;
+using MeowRescue.Data;
+using MeowRescue.Objects;
 using MeowRescue.Score;
 using MeowRescue.Utilities;
 using UnityEngine;

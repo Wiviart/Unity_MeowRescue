@@ -32,7 +32,7 @@ namespace MeowRescue.Utilities
                 newLevel.exitPoints = baseLevelData.exitPoints;
 
                 GeneratePoints(newLevel.meowPoints, 20, 80, 40, 400);
-                GeneratePoints(newLevel.obstaclePoints, 0, 100, 0, 400);
+                GeneratePoints(newLevel.obstaclePoints, 10, 100, 0, 400);
 
                 SaveLevel(newLevel);
             }
@@ -50,10 +50,13 @@ namespace MeowRescue.Utilities
 
         private void SaveLevel(LevelData levelData)
         {
+#if UNITY_EDITOR
+
             var path = "Assets/Resources/Levels/" + levelData.name + ".asset";
             UnityEditor.AssetDatabase.CreateAsset(levelData, path);
             UnityEditor.AssetDatabase.SaveAssets();
             UnityEditor.AssetDatabase.Refresh();
+#endif
         }
     }
 }

@@ -24,6 +24,7 @@ namespace MeowRescue.Objects
             }
 
             transform.position += Vector3.right * speed * Time.deltaTime * direction;
+            transform.forward = Vector3.right * direction;
         }
 
         private bool IsObstacleAhead(Vector3 direction)

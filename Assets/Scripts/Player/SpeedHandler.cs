@@ -31,8 +31,8 @@ namespace MeowRescue.Player
 #endif
 
             Speed += ConstTag.speedMultiplier;
-            cost += ConstTag.speedUpgradeCostMultiplier;
             playerGold.AddGold(-cost);
+            cost += ConstTag.speedUpgradeCostMultiplier;
 
             Saver.Save(ConstTag.SPEED, Speed);
             Saver.Save(ConstTag.SPEED_COST, cost);

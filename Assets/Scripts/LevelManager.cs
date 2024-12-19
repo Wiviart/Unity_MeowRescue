@@ -71,6 +71,7 @@ public class LevelManager : MonoBehaviour
         print("Game has been reset.");
     }
 
+    [ContextMenu("Unlock Next Level")]
     private void UnlockLevel()
     {
         if (levelIndex >= gameData.levels.Length - 1) return;

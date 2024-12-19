@@ -92,3 +92,4 @@ crashlytics-build.properties
 # End generated .gitignore file.
 .vsconfig
 Documents
+.utmp

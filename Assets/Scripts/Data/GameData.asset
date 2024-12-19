@@ -23,4 +23,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6d9d713166d660446be558b416066ab9, type: 2}
   - {fileID: 11400000, guid: 6d9d713166d660446be558b416066ab9, type: 2}
   checkpointPrefab: {fileID: 2738786349271990852, guid: 2ed3cb3f258e34549ac075a27e0828d5, type: 3}
-  exitPrefab: {fileID: 2738786349271990852, guid: a1ce88920e2f46a42b7dd942ff07da4a, type: 3}
+  exitPrefab: {fileID: 2519769472558682817, guid: 20952fb87283b17478714bdadf9cf392, type: 3}

@@ -8,7 +8,7 @@ namespace MeowRescue.UI
     {
         [SerializeField] private TextMeshProUGUI currencyText;
 
-        private void Start()
+        private void OnEnable()
         {
             Observer.Instance.OnGoldChanged += UpdateCurrency;
         }

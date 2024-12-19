@@ -1,3 +1,4 @@
+using System;
 using MeowRescue.Data;
 using MeowRescue.Objects;
 using MeowRescue.Score;
@@ -20,14 +21,6 @@ namespace MeowRescue.Player
 
         private void Start()
         {
-            Observer.Instance.OnGameEnded += CalculateReward;
-            Observer.Instance.OnGameWin += () =>
-            {
-                CalculateReward();
-                speedHandler.ResetSpeed();
-            };
-            Observer.Instance.OnPlayerUpgradeChanged += UpgradeStats;
-
             visual = new PlayerVisual(playerVisual);
             visual.SetUpVisuals(transform);
 
@@ -39,6 +32,17 @@ namespace MeowRescue.Player
             collector = new PlayerCollector(transform);
 
             startPosition = transform.position;
+        }
+
+        private void OnEnable()
+        {
+            Observer.Instance.OnGameEnded += CalculateReward;
+            Observer.Instance.OnGameWin += () =>
+            {
+                CalculateReward();
+                speedHandler.ResetSpeed();
+            };
+            Observer.Instance.OnPlayerUpgrade += UpgradeStats;
         }
 
         private void OnDisable()
@@ -65,6 +69,7 @@ namespace MeowRescue.Player
                 var meow = other.GetComponent<ICollectable>();
                 meow?.Collect();
                 anim.SetLayerWeight(ConstTag.CATCH_LAYER, 1);
+                goldCounter.AddGold(100);
                 Observer.Instance.MeowCaught();
             }
 

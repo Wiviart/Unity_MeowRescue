@@ -6,8 +6,7 @@ namespace MeowRescue.Score
     public class PlayerGold
     {
         private int gold;
-        public int Gold => gold;
-
+        
         public PlayerGold()
         {
             Loader.Load(ConstTag.GOLD, out int g);
@@ -19,11 +18,6 @@ namespace MeowRescue.Score
             gold += value;
             Saver.Save(ConstTag.GOLD, gold);
             Observer.Instance.GoldChanged(gold);
-        }
-
-        public void ResetGold()
-        {
-            gold = 0;
         }
     }
 }

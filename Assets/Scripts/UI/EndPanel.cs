@@ -10,7 +10,7 @@ namespace MeowRescue.UI
         [SerializeField] private TextMeshProUGUI panelName;
         [SerializeField] private TextMeshProUGUI score;
 
-        private void Start()
+        private void OnEnable()
         {
             Observer.Instance.OnGameEnded += () =>
             {
@@ -25,7 +25,10 @@ namespace MeowRescue.UI
             };
 
             Observer.Instance.OnScoreChanged += ShowScore;
-
+        }
+        
+        void Start()
+        {
             Hide();
         }
 

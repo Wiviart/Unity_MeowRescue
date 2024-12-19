@@ -8,9 +8,13 @@ namespace MeowRescue.UI
     {
         private TextMeshProUGUI text;
 
-        private void Start()
+        void Awake()
         {
             text = GetComponent<TextMeshProUGUI>();
+        }
+        
+        private void OnEnable()
+        {
             Observer.Instance.OnMeowChanged += ShowMeow;
         }
 

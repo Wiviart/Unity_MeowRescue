@@ -7,7 +7,7 @@ namespace MeowRescue.Utilities
     {
         public Action<int> OnGoldChanged;
         public Action<float, int> OnSpeedChanged;
-        public Action<StatsType> OnPlayerUpgradeChanged;
+        public Action<StatsType> OnPlayerUpgrade;
         public Action OnGameEnded;
         public Action OnGameWin;
         public Action<int> OnGameFinished;
@@ -20,9 +20,9 @@ namespace MeowRescue.Utilities
             OnGoldChanged?.Invoke(gold);
         }
 
-        public void PlayerUpgradeChanged(StatsType upgradeType)
+        public void PlayerUpgrade(StatsType upgradeType)
         {
-            OnPlayerUpgradeChanged?.Invoke(upgradeType);
+            OnPlayerUpgrade?.Invoke(upgradeType);
         }
 
         public void GameEnded()
@@ -69,7 +69,7 @@ namespace MeowRescue.Utilities
         {
             OnGoldChanged = null;
             OnSpeedChanged = null;
-            OnPlayerUpgradeChanged = null;
+            OnPlayerUpgrade = null;
             OnGameEnded = null;
             OnGameWin = null;
             OnGameFinished = null;

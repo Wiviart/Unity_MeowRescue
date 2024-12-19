@@ -20,7 +20,7 @@ namespace MeowRescue.UI
             button.onClick.AddListener(Upgrade);
         }
 
-        private void Start()
+        private void OnEnable()
         {
             Observer.Instance.OnSpeedChanged += UpdateUI;
         }
@@ -34,7 +34,7 @@ namespace MeowRescue.UI
 
         private void Upgrade()
         {
-            Observer.Instance.PlayerUpgradeChanged(upgradeType);
+            Observer.Instance.PlayerUpgrade(upgradeType);
         }
     }
 }

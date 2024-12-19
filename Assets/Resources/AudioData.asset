@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d59bae4873ac794cad787258242d16b, type: 3}
+  m_Name: AudioData
+  m_EditorClassIdentifier: 
+  pickupClip: {fileID: 8300000, guid: 106d0bf09cc817841854abe0b0677363, type: 3}
+  winClip: {fileID: 8300000, guid: 8b29a68ae61b30b41a2723227646ed3f, type: 3}
+  loseClip: {fileID: 8300000, guid: 7bd57333b4b9b0843ae2081f2a15e200, type: 3}
+  buttonClickClip: {fileID: 8300000, guid: 047bbb614aba7704fa73823056d8ceba, type: 3}

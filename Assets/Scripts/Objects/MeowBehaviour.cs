@@ -19,8 +19,7 @@ namespace MeowRescue.Objects
         private void Start()
         {
             Loader.Load(ConstTag.LEVEL, out speed);
-            speed++;
-            speed *= 10;
+            speed = (speed + 1) * 5;
             player = FindObjectsByType<PlayerBehaviour>(FindObjectsSortMode.None)[0].transform;
 
             currentDirection = Vector3.forward;
@@ -48,6 +47,7 @@ namespace MeowRescue.Objects
                 randomDirection = GetClearDirection(awayFromPlayer);
             }
 
+            randomDirection.y = 0;
             currentDirection = randomDirection;
             var target = Quaternion.LookRotation(currentDirection);
             transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * 5);

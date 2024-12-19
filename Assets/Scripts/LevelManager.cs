@@ -33,16 +33,20 @@ public class LevelManager : MonoBehaviour
 
         GameState = GameState.Playing;
         
+        Observer.Instance.MeowChanged(meowCount, levelData.meowPoints.Length);
+    }
+
+    private void OnEnable()
+    {
         Observer.Instance.OnGameEnded += GameOver;
         Observer.Instance.OnGameWin += () =>
         {
             GameState = GameState.GameWin;
             UnlockLevel();
         };
+
         Observer.Instance.OnGameFinished += GameFinished;
         Observer.Instance.OnMeowCatched += CountMeow;
-
-        Observer.Instance.MeowChanged(meowCount, levelData.meowPoints.Length);
     }
 
     void SortLevels(LevelData[] levels)

@@ -18,6 +18,7 @@ namespace MeowRescue.Player
         private PlayerGold goldCounter;
         private SpeedHandler speedHandler;
         private Vector3 startPosition;
+        private bool isPlaying;
 
         private void Start()
         {
@@ -36,6 +37,7 @@ namespace MeowRescue.Player
 
         private void OnEnable()
         {
+            Observer.Instance.OnGameStart += StartGame;
             Observer.Instance.OnGameEnded += CalculateReward;
             Observer.Instance.OnGameWin += () =>
             {
@@ -52,7 +54,7 @@ namespace MeowRescue.Player
 
         private void Update()
         {
-            var isPlaying = LevelManager.GameState == GameState.Playing;
+            // isPlaying = LevelManager.GameState == GameState.Playing;
             var movement = isPlaying ? input.GetMovement() : Vector2.zero;
             var magnitude = isPlaying ? Mathf.Clamp01(movement.magnitude) : 0;
 
@@ -86,6 +88,8 @@ namespace MeowRescue.Player
 
         private void CalculateReward()
         {
+            isPlaying = false;
+            
             var distance = Vector3.Distance(startPosition, transform.position);
             var isAvailable = startPosition.z < transform.position.z;
             var s = isAvailable ? Mathf.FloorToInt(distance) : 0;
@@ -109,6 +113,11 @@ namespace MeowRescue.Player
                 default:
                     break;
             }
+        }
+
+        private void StartGame()
+        {
+            isPlaying = true;
         }
     }
 }

@@ -8,6 +8,7 @@ namespace MeowRescue.Utilities
         public Action<int> OnGoldChanged;
         public Action<float, int> OnSpeedChanged;
         public Action<StatsType> OnPlayerUpgrade;
+        public Action OnGameStart;
         public Action OnGameEnded;
         public Action OnGameWin;
         public Action<int> OnGameFinished;
@@ -58,6 +59,11 @@ namespace MeowRescue.Utilities
         public void GameFinished(int caught)
         {
             OnGameFinished?.Invoke(caught);
+        }
+
+        public void GameStart()
+        {
+            OnGameStart?.Invoke();
         }
 
         private void Awake()

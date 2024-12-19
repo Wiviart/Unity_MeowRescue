@@ -1,4 +1,5 @@
 using MeowRescue.Data;
+using MeowRescue.Utilities;
 using UnityEngine;
 
 namespace MeowRescue.Objects
@@ -7,10 +8,17 @@ namespace MeowRescue.Objects
     {
         private readonly float[] speeds = { 10f, 40f };
         private int index = 0;
+        private bool isPlaying;
+        
+        private void OnEnable()
+        {
+            Observer.Instance.OnGameStart += () => isPlaying = true;
+            Observer.Instance.OnGameEnded += () => isPlaying = false;
+            Observer.Instance.OnGameWin += () => isPlaying = false;
+        }
 
         private void Update()
         {
-            bool isPlaying = LevelManager.GameState == GameState.Playing;
             if (!isPlaying) return;
             transform.position += Vector3.forward * speeds[index] * Time.deltaTime;
         }

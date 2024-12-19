@@ -10,7 +10,6 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private GameData gameData;
     private LevelData levelData;
     private int levelIndex;
-    public static GameState GameState { private set; get; } = GameState.Init;
     private int meowCount = 0;
 
     private void Awake()
@@ -30,26 +29,18 @@ public class LevelManager : MonoBehaviour
         spawner.Spawn(SpawnType.Player);
         spawner.Spawn(SpawnType.Meows);
         spawner.Spawn(SpawnType.Tsunami);
-
-        GameState = GameState.Playing;
         
         Observer.Instance.MeowChanged(meowCount, levelData.meowPoints.Length);
     }
 
     private void OnEnable()
     {
-        Observer.Instance.OnGameEnded += GameOver;
-        Observer.Instance.OnGameWin += () =>
-        {
-            GameState = GameState.GameWin;
-            UnlockLevel();
-        };
-
+        Observer.Instance.OnGameWin += UnlockLevel;
         Observer.Instance.OnGameFinished += GameFinished;
         Observer.Instance.OnMeowCatched += CountMeow;
     }
 
-    void SortLevels(LevelData[] levels)
+    private void SortLevels(LevelData[] levels)
     {
         for (int i = 0; i < levels.Length; i++)
         {
@@ -61,11 +52,6 @@ public class LevelManager : MonoBehaviour
                 }
             }
         }
-    }
-
-    private void GameOver()
-    {
-        GameState = GameState.GameOver;
     }
 
     [ContextMenu("Reset Game")]
@@ -105,12 +91,4 @@ public class LevelManager : MonoBehaviour
         var spawner = new LevelGeneration(gameData.baseLevelData);
         spawner.GenerateLevels(10);
     }
-}
-
-public enum GameState
-{
-    Init,
-    Playing,
-    GameWin,
-    GameOver
 }
